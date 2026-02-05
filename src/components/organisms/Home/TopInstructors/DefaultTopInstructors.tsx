@@ -96,7 +96,7 @@ export const DefaultTopInstructors = () => {
                       </div>
                     </div>
 
-                    <div className="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 rounded-full bg-secondary text-white text-xs font-black shadow-lg">
+                    <div className="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 rounded-full bg-secondary  text-xs font-black shadow-lg">
                       {ins.specialty.toUpperCase()}
                     </div>
                   </div>
