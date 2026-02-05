@@ -105,6 +105,7 @@
   "common": {
     "search": "Search...",
     "login": "Login",
+    "settings": "Settings",
     "start_learning": "Start Learning",
     "logout": "Logout",
     "all_rights_reserved": "All rights reserved.",
