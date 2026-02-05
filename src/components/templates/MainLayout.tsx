@@ -70,7 +70,7 @@ export const MainLayout = memo(({ children }: MainLayoutProps) => {
   return (
     <div
       className={cn(
-        "min-h-screen bg-background transition-colors duration-300 flex flex-col font-sans",
+        "min-h-screen bg-background transition-colors duration-300 flex flex-col font-sans max-w-screen-md mx-auto overflow-x-hidden",
         i18n.language === "ar" ? "font-vazirmatn" : "font-sans",
         isKids &&
           "bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-secondary/5 via-background to-background"
