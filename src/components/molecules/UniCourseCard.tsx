@@ -5,9 +5,7 @@ import {
   ShoppingCart,
   Check,
   Clock,
-  BookOpen,
   PlayCircle,
-  Heart,
   GraduationCap,
   Library,
 } from "lucide-react";
@@ -30,7 +28,7 @@ interface CourseCardProps {
 
 export const UniCourseCard = memo(
   ({ course, variant = "vertical" }: CourseCardProps) => {
-    const { i18n, t } = useTranslation();
+    const { i18n } = useTranslation();
     const navigate = useNavigate();
     const isAr = i18n.language === "ar";
     const dispatch = useAppDispatch();
@@ -92,12 +90,10 @@ export const UniCourseCard = memo(
             alt={course.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          
+
           {/* Level Badge */}
           <div className={cn("absolute top-4", isAr ? "right-4" : "left-4")}>
-            <Badge
-              className="bg-maroon-600 text-white border-none px-3 py-1 font-bold text-[9px] rounded-md shadow-md uppercase tracking-wide"
-            >
+            <Badge className="bg-maroon-600 text-white border-none px-3 py-1 font-bold text-[9px] rounded-md shadow-md uppercase tracking-wide">
               <GraduationCap className="w-3 h-3 mr-1.5 inline" />
               {course.level || (isAr ? "جامعي" : "ACADEMIC")}
             </Badge>
