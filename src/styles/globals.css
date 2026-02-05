@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+:root {
+  --background: #fcfcfd;
+  --foreground: #0a0a0b;
+
+  --primary: #0D358C;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+
+  --card: #ffffff;
+  --card-foreground: #0a0a0b;
+
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0b;
+
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+
+  --accent: #f3f4f6;
+  --accent-foreground: #111827;
+
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #0D358C;
+
+  --container-max-width: 1440px;
+  --section-py: 6rem;
+  --section-px: 1rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --section-px: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-px: 2rem;
+  }
+}
+
+[data-theme="kids"] {
+  --background: #fffdf0; /* Soft warm yellow */
+  --foreground: #2d3436;
+
+  --primary: #ff6b6b; /* Vibrant coral/pink */
+  --primary-foreground: #ffffff;
+
+  --secondary: #4ecdc4; /* Bright teal */
+  --secondary-foreground: #ffffff;
+
+  --card: #ffffff;
+  --card-foreground: #2d3436;
+
+  --muted: #f1f2f6;
+  --muted-foreground: #636e72;
+
+  --accent: #ffe66d; /* Sunny yellow */
+  --accent-foreground: #2d3436;
+
+  --border: #ffeaa7;
+  --input: #ffeaa7;
+  --ring: #ff6b6b;
+
+  --radius-lg: 2.5rem; /* Extra rounded for kids */
+  --radius-md: 1.5rem;
+  --radius-sm: 1rem;
+}
+
+.dark [data-theme="kids"],
+[data-theme="kids"].dark {
+  --background: #1a1a2e;
+  --foreground: #e4e4e4;
+  --primary: #ff8e8e;
+  --secondary: #4ecdc4;
+  --card: #16213e;
+  --border: #0f3460;
+  --muted: #0f3460;
+  --muted-foreground: #94a3b8;
+  --accent: #ffd93d;
+}
+
+[data-theme="coders"] {
+  --background: #f8f9fa;
+  --foreground: #212529;
+  --primary: #0969da; /* Professional blue */
+  --primary-foreground: #ffffff;
+  --secondary: #24292f;
+  --secondary-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #212529;
+  --muted: #f6f8fa;
+  --muted-foreground: #57606a;
+  --accent: #2da44e; /* GitHub green */
+  --accent-foreground: #ffffff;
+  --border: #d0d7de;
+  --input: #d0d7de;
+  --ring: #0969da;
+  --radius-lg: 0.25rem;
+  --radius-md: 0.125rem;
+  --radius-sm: 0rem;
+}
+
+.dark [data-theme="coders"],
+[data-theme="coders"].dark {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --primary: #238636;
+  --primary-foreground: #ffffff;
+  --secondary: #21262d;
+  --secondary-foreground: #c9d1d9;
+  --card: #161b22;
+  --card-foreground: #c9d1d9;
+  --muted: #0d1117;
+  --muted-foreground: #8b949e;
+  --accent: #1f6feb;
+  --accent-foreground: #ffffff;
+  --border: #30363d;
+  --input: #30363d;
+  --ring: #238636;
+}
+
+[data-theme="azhari"] {
+  --background: #fdfaf5;
+  --foreground: #2d3436;
+  --primary: #1e5f53; /* Deep Islamic green */
+  --primary-foreground: #ffffff;
+  --secondary: #e8f0ed;
+  --secondary-foreground: #1e5f53;
+  --card: #ffffff;
+  --card-foreground: #2d3436;
+  --muted: #f1f5f3;
+  --muted-foreground: #636e72;
+  --accent: #d4af37; /* Gold accent */
+  --accent-foreground: #ffffff;
+  --border: #d1dbd6;
+  --input: #d1dbd6;
+  --ring: #1e5f53;
+  --radius-lg: 1.5rem;
+}
+
+.dark [data-theme="azhari"],
+[data-theme="azhari"].dark {
+  --background: #0a1f1c;
+  --foreground: #e8f0ed;
+  --primary: #2d8576;
+  --secondary: #1a3a34;
+  --card: #0d2b26;
+  --border: #1e5f53;
+  --muted: #1a3a34;
+  --muted-foreground: #8ea9a4;
+  --accent: #b8860b;
+}
+
+[data-theme="uni"] {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #800000; /* Academic Maroon */
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --muted: #f8f8f8;
+  --muted-foreground: #666666;
+  --accent: #ffd700; /* Graduation Gold */
+  --accent-foreground: #1a1a1a;
+  --border: #e0e0e0;
+  --input: #e0e0e0;
+  --ring: #800000;
+  --radius-lg: 0.75rem;
+}
+
+.dark [data-theme="uni"],
+[data-theme="uni"].dark {
+  --background: #1a0000;
+  --foreground: #f5f5f5;
+  --primary: #a52a2a;
+  --secondary: #2d2d2d;
+  --card: #240000;
+  --border: #4a0000;
+  --muted: #2d2d2d;
+  --muted-foreground: #a0a0a0;
+  --accent: #daa520;
+}
+
+.dark {
+  --background: #030712;
+  --foreground: #f9fafb;
+
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  --secondary: #111827;
+  --secondary-foreground: #f9fafb;
+
+  --card: #030712;
+  --card-foreground: #f9fafb;
+
+  --popover: #030712;
+  --popover-foreground: #f9fafb;
+
+  --muted: #111827;
+  --muted-foreground: #9ca3af;
+
+  --accent: #111827;
+  --accent-foreground: #f9fafb;
+
+  --border: #1f2937;
+  --input: #1f2937;
+  --ring: #3b82f6;
+}
+
+@layer base {
+  html {
+    font-size: 14px;
+  }
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-primary;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/70 backdrop-blur-lg border border-white/20 dark:border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary to-blue-600 dark:from-blue-400 dark:to-blue-600;
+  }
+}

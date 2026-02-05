@@ -1,0 +1,921 @@
+{
+  "auth": {
+    "login_title": "Login",
+    "register_title": "Create New Account",
+    "full_name": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "role": "Account Type",
+    "student": "Student",
+    "parent": "Parent",
+    "instructor": "Instructor",
+    "admin": "Admin",
+    "select_role": "Select Account Type",
+    "google_login": "Login with Google",
+    "facebook_login": "Login with Facebook",
+    "already_have_account": "Already have an account?",
+    "dont_have_account": "Don't have an account?",
+    "login_now": "Login Now",
+    "register_now": "Register Now",
+    "forgot_password": "Forgot Password?",
+    "accept_terms": "I agree to the terms and conditions",
+    "or_register_with": "Or register with",
+    "or_login_with": "Or login with",
+    "enter_name": "Enter your name",
+    "enter_email": "Enter your email",
+    "enter_password": "Enter your password",
+    "errors": {
+      "name_required": "Full name is required",
+      "email_invalid": "Invalid email address",
+      "password_min": "Password must be at least 6 characters",
+      "password_mismatch": "Passwords do not match",
+      "role_required": "Please select an account type",
+      "terms_required": "You must agree to the terms"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "student_title": "Student Dashboard",
+    "parent_title": "Parent Dashboard",
+    "my_courses": "My Courses",
+    "children_progress": "Children Progress",
+    "recent_activities": "Recent Activities",
+    "type_message": "Message Type",
+    "back_to_website": "Back to Website",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "children": "Children",
+      "courses": "My Courses",
+      "assignments": "Assignments",
+      "exams": "Exams",
+      "calendar": "Calendar",
+      "reports": "Reports",
+      "payments": "Payments",
+      "messages": "Messages",
+      "notifications": "Notifications",
+      "settings": "Settings",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "stats": {
+      "completed_courses": "Completed Courses",
+      "in_progress": "In Progress",
+      "total_hours": "Total Hours"
+    },
+    "completed": "Completed",
+    "lessons": "Lessons",
+    "overall_progress": "Overall Progress",
+    "minutes_ago": "minutes ago",
+    "activities": {
+      "completed_lesson": "{{name}} completed a new lesson in {{course}}"
+    },
+    "admin": {
+      "title": "Admin Dashboard",
+      "stats": {
+        "total_users": "Total Users",
+        "active_courses": "Active Courses",
+        "total_revenue": "Total Revenue",
+        "pending_instructors": "Pending Instructors"
+      },
+      "users": {
+        "title": "User Management",
+        "add_user": "Add User",
+        "edit_user": "Edit User",
+        "delete_user": "Delete User",
+        "role_filter": "Filter by Role"
+      },
+      "courses": {
+        "title": "Course Management",
+        "create_course": "Create New Course",
+        "edit_course": "Edit Course",
+        "delete_course": "Delete Course",
+        "status_active": "Active",
+        "status_draft": "Draft"
+      },
+      "payments": {
+        "title": "Payment Management",
+        "transaction_id": "Transaction ID",
+        "amount": "Amount",
+        "status": "Status",
+        "date": "Date"
+      }
+    }
+  },
+  "common": {
+    "search": "Search...",
+    "login": "Login",
+    "start_learning": "Start Learning",
+    "logout": "Logout",
+    "all_rights_reserved": "All rights reserved.",
+    "details": "Details",
+    "courses": "Courses",
+    "previous": "Previous",
+    "next": "Next",
+    "site_name": "WAKP - edu",
+    "site_description": "Empowering education through technology. Join the #1 learning platform in the Arab world.",
+    "site_keywords": "education, learning, courses, management, online learning, arab world"
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "exams": "Exams",
+    "calendar": "Calendar",
+    "instructors": "Instructors",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "Cart",
+    "dashboard": "Dashboard",
+    "services": "Services",
+    "Become_instructor": "Become Instructor"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "description": "Schedule of classes, courses, and exams",
+    "subtitle": "View your schedule by type: classes, courses, exams",
+    "badge": "Study Schedule",
+    "events": "Events",
+    "viewing_children": "Viewing children’s schedule",
+    "type": {
+      "class": "Class",
+      "course": "Course",
+      "exam": "Exam"
+    },
+    "for_child": "For student"
+  },
+  "exams": {
+    "title": "Exams",
+    "description": "Exam schedules and student results",
+    "subtitle": "View upcoming exams and your past results",
+    "badge": "Exams Portal",
+    "public_schedule": "Published Exam Schedule",
+    "my_exams": "My Exams",
+    "children_exams": "Children Exams & Grades",
+    "upcoming": "Upcoming",
+    "completed": "Completed",
+    "score": "Score",
+    "completed_title": "Exam Completed",
+    "finished": "Well done! You have completed the exam",
+    "score_msg": "You got a score of",
+    "correct_answers": "Correct Answers",
+    "time_taken": "Time Taken",
+    "back_to_dashboard": "Back to Dashboard",
+    "taking_exam": "Taking Exam",
+    "exam_id": "Exam ID",
+    "question_count": "Question",
+    "of": "of",
+    "submit": "Submit Exam",
+    "start_now": "Start Now",
+    "start_exam": "Start Exam",
+    "view_answers": "View Answers"
+  },
+  "footer": {
+    "platform": "Platform",
+    "platform_desc": "We strive to provide the best integrated educational experience, empowering minds and building future skills with the latest technical means.",
+    "support": "Support",
+    "newsletter": "Newsletter",
+    "newsletter_desc": "Subscribe to get the latest courses and exclusive articles.",
+    "email_placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "become_instructor": "Become Instructor",
+    "cookies": "Cookie Policy",
+    "help": "Help Center"
+  },
+  "parent_exams": {
+    "subtitle": "Children grades and upcoming exam schedule",
+    "children_exams": "Children Exams",
+    "overview": "Overview"
+  },
+  "errors": {
+    "not_found_title": "Oops! Page Not Found",
+    "not_found_desc": "It seems you've taken a wrong turn. The page you're looking for might have been moved or deleted.",
+    "back_home": "Back to Home"
+  },
+  "home": {
+    "hero_badge": "The #1 Learning Platform in the Arab World",
+    "hero_title1": "Learn Future",
+    "hero_title2": "Skills Today",
+    "hero_desc": "Join over 50,000 students and start your learning journey with elite instructors in various technical and creative fields.",
+    "start_now": "Start Learning Now",
+    "how_it_works": "Watch How it Works",
+    "active_students": "Active Students",
+    "expert_instructors": "Expert Instructors",
+    "certified_platform": "Certified Platform",
+    "view_all_instructors": "View All Instructors",
+    "top_rated": "Top Rated",
+    "students": "Students",
+    "rating": "Rating",
+    "instructors_badge": "Expert Instructors",
+    "featured_badge": "Featured Courses",
+    "view_profile": "View Profile",
+    "stats": {
+      "courses": "Courses",
+      "instructors": "Expert Instructors",
+      "hours": "Learning Hours",
+      "rating": "Positive Rating"
+    },
+    "latest_courses": "Latest Courses",
+    "explore_best": "Explore the best courses carefully selected for you",
+    "view_all": "View All",
+    "popular_categories": "Popular Categories",
+    "browse_categories": "Browse courses by specialization",
+    "categories": {
+      "programming": "Programming",
+      "design": "Design",
+      "business": "Business",
+      "marketing": "Marketing",
+      "photography": "Photography",
+      "music": "Music",
+      "social": "Social Media",
+      "management": "Management",
+      "health": "Health & Beauty"
+    },
+    "top_instructors": "Top Instructors",
+    "instructors": {
+      "i1": {
+        "name": "Dr. Mohamed Shaker",
+        "role": "Web Development Expert"
+      },
+      "i2": {
+        "name": "Mrs. Laila Hassan",
+        "role": "UI/UX Designer"
+      },
+      "i3": {
+        "name": "Eng. Youssef Reda",
+        "role": "AI Specialist"
+      },
+      "i4": {
+        "name": "Dr. Sarah Kamal",
+        "role": "Project Manager"
+      }
+    },
+    "learn_from_best": "Learn from industry experts and certified instructors",
+    "what_students_say": "What our students say?",
+    "testimonials_desc": "Real success stories from students who changed their lives through our platform",
+    "testimonials": {
+      "t1": {
+        "text": "The platform completely changed my career. The courses are very practical and the content is constantly updated.",
+        "author": "Ahmed Samir",
+        "role": "Frontend Developer"
+      },
+      "t2": {
+        "text": "The best Arabic educational experience I've had. The instructors are very helpful and the explanation is simplified.",
+        "author": "Mona Mahmoud",
+        "role": "Graphic Designer"
+      },
+      "t3": {
+        "text": "The practical projects in the courses helped me build a strong portfolio through which I got my dream job.",
+        "author": "Khaled Walid",
+        "role": "Data Analyst"
+      }
+    },
+    "final_cta_title": "Ready to start your learning journey?",
+    "final_cta_desc": "Join thousands of students today and get unlimited access to the best training courses.",
+    "join_now": "Join Now for Free",
+    "browse_courses": "Browse All Courses",
+    "about": {
+      "subtitle": "About WAKP Academy",
+      "title": "We are here to help you achieve your learning goals",
+      "description": "WAKP Academy is your first destination for smart learning, where we combine quality content and accessibility to provide you with a unique learning experience.",
+      "students_community": "Students in our community",
+      "mission_title": "Our Mission",
+      "mission_desc": "Empowering learners in the Arab world by providing high-quality educational content at competitive prices.",
+      "vision_title": "Our Vision",
+      "vision_desc": "To be the leading global educational platform in providing modern digital and technical skills.",
+      "community_title": "Our Community",
+      "community_desc": "An interactive learning environment that allows you to connect with experts and other students.",
+      "badge": "Join our community today and start your learning journey!"
+    },
+    "classes": {
+      "title": "Live Classes",
+      "description": "Join interactive live lessons with top teachers and experts",
+      "view_schedule": "View Schedule",
+      "students_joined": "Students Joined",
+      "book_seat": "Book Your Seat",
+      "join_now": "Join Now",
+      "live_now": "Live Now"
+    },
+    "subs": {
+      "title": "Subscription Plans",
+      "description": "Choose the plan that suits you and start your journey today",
+      "basic_name": "Basic Plan",
+      "pro_name": "Pro Plan",
+      "yearly_name": "Yearly Plan",
+      "monthly": "Month",
+      "yearly": "Year",
+      "most_popular": "Most Popular",
+      "get_started": "Subscribe Now",
+      "feat_courses": "Access to 50 courses",
+      "feat_certs": "Completion Certificates",
+      "feat_support_no": "Limited technical support",
+      "feat_courses_all": "Full access to all courses",
+      "feat_certs_all": "Certified certificates",
+      "feat_live_classes": "Weekly live classes",
+      "feat_support_yes": "Premium technical support",
+      "feat_live_all": "Full access to all live classes",
+      "feat_offline": "Download lessons for offline viewing",
+      "feat_mentor": "Personal mentoring from experts",
+      "badge": "Join our community today and start your learning journey!"
+    },
+    "faqs": {
+      "title": "FAQs",
+      "description": "Everything you need to know about the platform and subscriptions",
+      "q1": "How can I start learning?",
+      "a1": "You can start by creating a free account, then browse the available courses and choose what suits you.",
+      "q2": "Are the certificates certified?",
+      "a2": "Yes, all certificates issued by the platform are certified and documented with a special serial number.",
+      "q3": "Can I download lessons?",
+      "a3": "Yes, yearly and pro plan subscribers can download lessons via the mobile app.",
+      "q4": "How can I contact the instructor?",
+      "a4": "You can communicate with instructors through the discussion section of each course or during live classes.",
+      "q5": "Is there a money-back guarantee?",
+      "a5": "Yes, we provide a money-back guarantee within the first 7 days of subscription if you are not satisfied."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Have a question or suggestion? Our team is always available to help you anytime.",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "location": "Main Headquarters",
+      "location_val": "Cairo, Egypt - North 90th St.",
+      "follow_us": "Follow us on social media",
+      "form_name": "Full Name",
+      "form_name_placeholder": "Enter your name here",
+      "form_email": "Email Address",
+      "form_subject": "Subject",
+      "form_subject_placeholder": "What would you like to contact us about?",
+      "form_message": "Your Message",
+      "form_message_placeholder": "Write your message in detail here...",
+      "form_send": "Send Message"
+    }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items_count": "{{count}} courses in your cart",
+    "empty_title": "Your cart is currently empty",
+    "empty_desc": "Start browsing our featured courses and add what you like to the cart to begin your learning journey.",
+    "browse_courses": "Browse Courses",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "terms_notice": "By proceeding to checkout, you agree to our Terms of Service.",
+    "remove": "Remove from cart",
+    "add_to_cart": "Add to Cart",
+    "in_cart": "In Cart"
+  },
+  "lessons": {
+    "progress": "Your Progress",
+    "locked_title": "This lesson is locked",
+    "locked_desc": "Please enroll in the course to get access to all lessons and materials.",
+    "overview": "Overview",
+    "resources": "Resources",
+    "discussions": "Discussions",
+    "about_lesson": "About this lesson",
+    "learning_objectives": "Learning Objectives",
+    "instructor_notes": "Instructor Notes",
+    "downloadable_resources": "Downloadable Resources",
+    "add_comment": "Add a comment or ask a question...",
+    "post_comment": "Post Comment",
+    "course_content": "Course Content",
+    "completed": "Completed",
+    "playing": "Playing",
+    "video_player": "Video Player",
+    "next_lesson": "Next Lesson",
+    "prev_lesson": "Previous Lesson",
+    "mark_as_complete": "Mark as Complete",
+    "expand_all": "Expand All",
+    "collapse_all": "Collapse All"
+  },
+  "course": {
+    "add_to_cart": "Add to Cart",
+    "in_cart": "In Cart",
+    "enroll_now": "Enroll Now",
+    "students": "Students",
+    "lessons": "Lessons",
+    "duration": "Hours",
+    "instructor": "Instructor",
+    "investment": "Investment"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "secure_notice": "100% Secure and Encrypted Payment",
+    "personal_info": "Personal Information",
+    "full_name": "Full Name",
+    "full_name_placeholder": "Enter your full name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "payment_method": "Payment Method",
+    "order_details": "Order Details",
+    "grand_total": "Grand Total",
+    "confirm_payment": "Confirm Payment",
+    "processing": "Processing...",
+    "card_number": "Card Number",
+    "expiry_date": "Expiry Date",
+    "cvv": "CVV",
+    "payment_methods": {
+      "card": "Credit Card",
+      "wallet": "E-Wallet",
+      "transfer": "Bank Transfer"
+    }
+  },
+  "order_success": {
+    "title": "Order Completed Successfully!",
+    "desc": "Thank you for your trust. Your course subscription has been successfully activated. You can now start your learning journey.",
+    "next_step": "Next Step",
+    "start_watching": "Start Watching",
+    "invoice": "Invoice",
+    "download_pdf": "Download PDF",
+    "go_dashboard": "Go to Dashboard",
+    "back_home": "Back to Home",
+    "failed_title": "Oops! Payment Failed",
+    "failed_desc": "We couldn't process your payment. Please try again or use a different payment method.",
+    "order_details": "Order Details",
+    "order_id": "Order ID",
+    "date": "Date",
+    "payment_method": "Payment",
+    "total_amount": "Total Amount",
+    "try_again": "Try Again"
+  },
+  "course_details": {
+    "about": "About Course",
+    "curriculum": "Curriculum",
+    "secure_payment": "Secure Payment",
+    "secure_payment_desc": "Your payment information is protected with the highest level of security.",
+    "reviews": "Reviews",
+    "instructor": "Instructor",
+    "buy_now": "Buy Now",
+    "related_courses": "Related Courses",
+    "related_courses_desc": "Explore more courses that might interest you in your learning journey",
+    "add_to_cart": "Add to Cart",
+    "in_cart": "In Cart",
+    "already_purchased": "Already Purchased",
+    "start_learning": "Start Learning Now",
+    "lessons_count": "{{count}} lessons",
+    "duration": "{{count}} hours",
+    "preview": "Preview",
+    "includes": "This course includes:",
+    "lifetime_access": "Full lifetime access",
+    "certificate": "Certificate of completion",
+    "mobile_access": "Access on mobile and TV",
+    "enrolled_students": "{{count}} students enrolled",
+    "best_seller": "Best Seller",
+    "share": "Share",
+    "wishlist": "Wishlist",
+    "what_you_will_learn": "What you will learn",
+    "watch": "Watch",
+    "instructor_rating": "Rating",
+    "curriculum_desc": "Explore the comprehensive course content step by step",
+    "you_may_also_like_desc": "Explore more premium courses that might interest you in your learning journey",
+    "explore_all_courses": "Explore All Courses",
+    "updated": "Last Updated",
+    "level": "Level",
+    "duration_label": "Duration",
+    "lessons_label": "Lessons",
+    "sections_label": "Sections",
+    "free_label": "FREE",
+    "continue_learning": "Continue Learning",
+    "learning_outcomes_title": "What you will learn in this course?",
+    "curriculum_title": "Course Curriculum",
+    "visitor_view": "Visitor View",
+    "student_view": "Student View",
+    "certified": "Certified",
+    "requirements_title": "Requirements",
+    "who_is_it_for": "Who is this for?",
+    "target_audience_1": "Beginners wanting to enter programming",
+    "target_audience_2": "Designers wanting to learn coding",
+    "preview_course": "Preview Course",
+    "already_enrolled": "You are enrolled in this diploma",
+    "completed_status": "Completed",
+    "resume_lectures": "Resume Lectures",
+    "resources": "Resources",
+    "community": "Community",
+    "discount_percent": "{{percent}}% OFF",
+    "features_title": "Course Features:",
+    "money_back_guarantee": "30-day money-back guarantee",
+    "practical_projects": "Practical projects for each section",
+    "direct_support": "Direct instructor support",
+    "secure_payment_notice": "100% Secure Payment",
+    "you_may_also_like": "You may also like",
+    "filters": {
+      "title": "Curriculum Filters",
+      "level_all": "All levels",
+      "level_beginner": "Beginner",
+      "level_intermediate": "Intermediate",
+      "level_advanced": "Advanced",
+      "duration_title": "Duration",
+      "duration_all": "All durations",
+      "duration_short": "Short (≤ 10 min)",
+      "duration_medium": "Medium (10–30 min)",
+      "duration_long": "Long (> 30 min)",
+      "access_title": "Access",
+      "access_all": "All",
+      "access_free": "Free",
+      "access_locked": "Locked"
+    }
+  },
+  "lesson": {
+    "next": "Next Lesson",
+    "prev": "Previous Lesson",
+    "resources": "Resources",
+    "complete": "Mark as Complete",
+    "locked": "This lesson is locked, purchase the course to access it",
+    "course_content": "Course Content",
+    "discussions": "Discussions",
+    "discussion_placeholder": "Write your question or comment here...",
+    "post": "Post",
+    "progress": "Your Progress",
+    "locked_title": "This lesson is locked",
+    "locked_desc": "Please enroll in the course to get access to all lessons and materials.",
+    "overview": "Overview",
+    "about_lesson": "About this lesson",
+    "learning_objectives": "Learning Objectives",
+    "instructor_notes": "Instructor Notes",
+    "downloadable_resources": "Downloadable Resources",
+    "add_comment": "Add a comment or ask a question...",
+    "post_comment": "Post Comment"
+  },
+  "instructor": {
+    "details": "Instructor Details",
+    "total_students": "Total Students",
+    "total_courses": "Total Courses",
+    "rating": "Rating",
+    "contact": "Contact Instructor",
+    "courses_by": "Courses by {{name}}",
+    "experience": "Professional Experience",
+    "education": "Education & Certifications",
+    "achievements": "Achievements & Awards",
+    "student_feedback": "Student Feedback",
+    "follow_me": "Follow Me",
+    "reviews": "Reviews",
+    "technical_skills": "Technical Skills",
+    "view_all_courses": "View all courses",
+    "view_more_reviews": "View more reviews",
+    "have_question": "Have a question?",
+    "contact_consultation": "Contact {{name}} directly for educational consultation.",
+    "send_message": "Send a message",
+    "hero_desc": "Learn from the elite experts and specialists who combine practical experience and high training ability.",
+    "search_placeholder": "Search for an instructor by name or specialty...",
+    "filter_all": "All",
+    "filter_programming": "Programming",
+    "filter_design": "Design",
+    "filter_business": "Business",
+    "filter_data": "Data Science",
+    "sort_label": "Sort by:",
+    "sort_popular": "Most Popular",
+    "sort_rating": "Highest Rated",
+    "sort_courses": "Number of Courses",
+    "course": "Course",
+    "student": "Student",
+    "profile": "Profile",
+    "featured_course": "Featured Course",
+    "enroll_now": "Enroll Now",
+    "featured_desc": "This course is the most requested, where you will learn everything you need to start your career path.",
+    "certified_trainer": "Google Certified Trainer",
+    "best_seller_author": "Best Seller Author",
+    "top_instructor": "Top Instructor of 2023",
+    "joined": "Joined {{year}}",
+    "no_results_title": "No instructors found",
+    "no_results_desc": "Try searching with different keywords",
+    "no_courses_title": "No Courses Yet",
+    "no_courses_desc": "This instructor hasn't published any courses yet. Stay tuned for upcoming content!",
+    "list": {
+      "inst1": {
+        "name": "Dr. Ahmed Ali",
+        "role": "Full-Stack Web Expert",
+        "specialty": "programming",
+        "bio": "Over 10 years of experience in web development and training thousands of developers worldwide. Specialized in JavaScript, React, and Node.js technologies. Worked as a Senior Software Developer at top global companies before moving to professional training.",
+        "location": "Riyadh, Saudi Arabia",
+        "rating": 4.9,
+        "reviewsCount": 4500,
+        "studentsCount": 15000,
+        "coursesCount": 12,
+        "joinedYear": "2020",
+        "skills": [
+          "React",
+          "Node.js",
+          "TypeScript",
+          "Next.js",
+          "AWS",
+          "Docker",
+          "GraphQL",
+          "PostgreSQL"
+        ],
+        "experience": [
+          {
+            "company": "Google",
+            "role": "Senior Software Engineer",
+            "period": "2018 - 2021",
+            "desc": "Leading UI development team for Cloud platform."
+          },
+          {
+            "company": "Amazon",
+            "role": "Frontend Developer",
+            "period": "2015 - 2018",
+            "desc": "Developing and optimizing shopping experience for millions of users."
+          }
+        ],
+        "education": [
+          {
+            "school": "King Saud University",
+            "degree": "PhD in Computer Science",
+            "year": "2015"
+          },
+          {
+            "school": "Stanford University",
+            "degree": "MSc in Software Engineering",
+            "year": "2012"
+          }
+        ],
+        "testimonials": [
+          {
+            "name": "Sarah Mohamed",
+            "role": "React Course Student",
+            "content": "Best explanation I've ever seen, Dr. Ahmed simplifies complex information amazingly."
+          },
+          {
+            "name": "Khaled Waleed",
+            "role": "Junior Frontend Developer",
+            "content": "Thanks to his courses, I was able to get my first job in programming."
+          }
+        ],
+        "courses": [
+          {
+            "title": "Full-Stack Web Development Basics",
+            "category": "Programming",
+            "price": "$135"
+          },
+          {
+            "title": "Mastering React & Next.js",
+            "category": "Programming",
+            "price": "$160"
+          }
+        ]
+      },
+      "inst2": {
+        "name": "Eng. Sarah Hassan",
+        "role": "UI/UX Designer",
+        "specialty": "design",
+        "bio": "Specialized in building attractive and user-friendly interfaces for startups.",
+        "rating": 4.8,
+        "studentsCount": 8500,
+        "coursesCount": 8
+      },
+      "inst3": {
+        "name": "Mr. Mahmoud Saad",
+        "role": "Project Management Consultant",
+        "specialty": "business",
+        "bio": "Expert in Agile and PMP methodologies with extensive experience in managing tech projects.",
+        "rating": 4.7,
+        "studentsCount": 12000,
+        "coursesCount": 15
+      },
+      "inst4": {
+        "name": "Dr. Layla Khaled",
+        "role": "Data Scientist",
+        "specialty": "data",
+        "bio": "AI researcher and big data analysis expert.",
+        "rating": 4.9,
+        "studentsCount": 6000,
+        "coursesCount": 6
+      }
+    }
+  },
+  "courses": {
+    "title": "All Courses",
+    "description": "Explore a wide range of training courses in various technical and creative fields to develop your skills.",
+    "search_placeholder": "Search for a course...",
+    "no_results_title": "No courses found",
+    "no_results_desc": "Try searching with different keywords",
+    "filter": "Filter",
+    "sort_by": "Sort by",
+    "sort_newest": "Newest",
+    "sort_best_selling": "Best Selling",
+    "sort_highest_rated": "Highest Rated",
+    "filters": {
+      "categories": "Categories",
+      "levels": "Level",
+      "duration": "Duration",
+      "rating": "Rating",
+      "price": "Price",
+      "all_levels": "All Levels",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "short": "Under 3 hours",
+      "medium": "3 - 7 hours",
+      "long": "Over 7 hours",
+      "free": "Free",
+      "paid": "Paid",
+      "clear_all": "Clear All",
+      "show_results": "Show Results"
+    },
+    "list": {
+      "course1": {
+        "title": "Ultimate Full-Stack Web Development Diploma",
+        "instructor": "Dr. Ahmed Ali",
+        "lastUpdated": "January 2026",
+        "language": "English",
+        "level": "Zero to Hero",
+        "description": "Embark on an intensive educational journey to become a full-stack web developer. We start from HTML & CSS basics to building complex applications with React, Node.js, and MongoDB.",
+        "learningPoints": [
+          "Build real-world, scalable web applications",
+          "Master Backend technologies with Node.js & Express",
+          "Design professional UIs with React & Tailwind",
+          "Manage SQL & NoSQL databases"
+        ],
+        "requirements": [
+          "A computer and internet connection",
+          "No prior programming experience required"
+        ],
+        "curriculum": [
+          {
+            "id": "m1",
+            "title": "Strong Foundations (HTML5 & CSS3)",
+            "lessons": [
+              {
+                "id": "l1",
+                "title": "Introduction to Modern Web",
+                "duration": "25:00"
+              },
+              {
+                "id": "l2",
+                "title": "Building Professional Structures",
+                "duration": "45:00"
+              }
+            ]
+          },
+          {
+            "id": "m2",
+            "title": "Frontend Programming (JavaScript Mastery)",
+            "lessons": [
+              {
+                "id": "l3",
+                "title": "JavaScript Fundamentals",
+                "duration": "120:00"
+              }
+            ]
+          }
+        ]
+      },
+      "course2": {
+        "title": "Modern UI/UX Design",
+        "instructor": "Eng. Sarah Hassan",
+        "lastUpdated": "December 2025",
+        "language": "English",
+        "level": "Intermediate",
+        "description": "Learn the secrets of designing attractive UIs and smooth UX using Figma and Adobe XD.",
+        "learningPoints": [
+          "Master modern Figma tools",
+          "Understand user psychology principles"
+        ],
+        "requirements": ["No prior requirements"],
+        "curriculum": [
+          {
+            "id": "m1",
+            "title": "Design Fundamentals",
+            "lessons": [
+              { "id": "l1", "title": "Intro to UI/UX", "duration": "15:00" }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "about": {
+    "title": "About",
+    "description": "We are a leading educational platform aiming to empower Arabic minds and equip them with the skills needed for success in the modern labor market.",
+    "show_alert_btn": "Show Smart Alert",
+    "alert": {
+      "title": "Smart Alert (SweetAlert2)",
+      "message": "The alert system has been updated to use SweetAlert2 with a custom design. Would you like to see a success alert?",
+      "confirm": "Yes, show me",
+      "cancel": "No thanks",
+      "success_title": "Great Job!",
+      "success_message": "Success alert triggered successfully."
+    },
+    "stats": {
+      "students": "Students",
+      "instructors": "Instructors",
+      "courses": "Courses",
+      "hours": "Training Hours",
+      "years_exp": "Years Experience"
+    },
+    "vision_mission": {
+      "title": "Our Vision & Mission",
+      "description": "Our journey began with a simple vision: making high-quality education accessible to everyone, anywhere, anytime. We strive to bridge the gap between traditional education and labor market requirements.",
+      "mission_title": "Our Mission",
+      "mission_desc": "Empowering students by providing the best educational resources.",
+      "vision_title": "Our Vision",
+      "vision_desc": "To be the preferred educational platform in the Arab world."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "quality_title": "Quality",
+      "quality_desc": "We are committed to providing the highest quality in our educational content.",
+      "innovation_title": "Innovation",
+      "innovation_desc": "We use the latest technologies and methods to make learning fun and effective.",
+      "community_title": "Community",
+      "community_desc": "We believe in the power of collaboration and collective learning in building a promising generation."
+    }
+  },
+  "become_instructor": {
+    "title": "Become an Instructor",
+    "hero": {
+      "title": "Share your knowledge with",
+      "title_highlight": "the next generation",
+      "description": "Join a community of elite instructors and help build a distinguished Arabic educational community.",
+      "cta": "Start Teaching Today"
+    },
+    "benefits": {
+      "title": "Why Join Us?",
+      "description": "We provide everything you need to succeed in your teaching career",
+      "list": {
+        "audience": {
+          "title": "Global Audience",
+          "desc": "Reach thousands of students eager to learn from around the world."
+        },
+        "income": {
+          "title": "Extra Income",
+          "desc": "Earn significant income by sharing your expertise and knowledge."
+        },
+        "tools": {
+          "title": "Advanced Tools",
+          "desc": "Use our modern tools to create and manage your courses with ease."
+        }
+      }
+    },
+    "stats": {
+      "students": "Students",
+      "courses": "Courses",
+      "countries": "Countries",
+      "rating": "Rating"
+    },
+    "form": {
+      "title": "Apply Now",
+      "description": "Fill out the form below and we will review your application within 48 hours.",
+      "full_name": "Full Name",
+      "full_name_placeholder": "Enter your full name",
+      "email": "Email Address",
+      "email_placeholder": "example@mail.com",
+      "specialty": "Educational Specialty",
+      "specialty_placeholder": "e.g., Web Development, Design, Marketing",
+      "experience": "About Your Experience",
+      "experience_placeholder": "Tell us a bit about your professional and educational experience...",
+      "submit": "Submit Application",
+      "sending": "Sending Application...",
+      "success_title": "Application Sent Successfully!",
+      "success_message": "Thank you for your interest in joining us. Our team will review your application and contact you soon.",
+      "validation": {
+        "name_min": "Full Name must be at least 3 characters",
+        "email_invalid": "Invalid email address",
+        "specialty_required": "Please specify your specialty",
+        "experience_min": "Please provide a brief summary of your experience"
+      }
+    },
+    "cta": {
+      "title": "Ready to share your expertise?",
+      "description": "Join hundreds of instructors who are achieving their goals with us every day.",
+      "register": "Register as Instructor",
+      "contact": "Contact Us"
+    }
+  },
+  "services": {
+    "title": "Our Educational Services",
+    "description": "We provide integrated educational solutions designed to fit your needs and help you develop.",
+    "list": {
+      "recorded": {
+        "title": "Recorded Courses",
+        "desc": "Unlimited access to a huge library of high-quality recorded courses."
+      },
+      "live": {
+        "title": "Live Classes",
+        "desc": "Live interaction with top instructors and experts in weekly classes."
+      },
+      "certified": {
+        "title": "Certified Certificates",
+        "desc": "Get certified completion certificates to boost your professional profile."
+      },
+      "paths": {
+        "title": "Learning Paths",
+        "desc": "Carefully designed paths to take you from beginner to professional."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "collection": {
+        "title": "1. Information Collection",
+        "content": "We collect information you provide directly to us when registering on the platform, including name, email, payment details, and other information you choose to provide."
+      },
+      "usage": {
+        "title": "2. Use of Information",
+        "content": "We use the information we collect to provide and improve services, communicate with you about your account, send updates, and ensure platform security."
+      }
+    }
+  }
+}
