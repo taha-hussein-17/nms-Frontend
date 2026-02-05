@@ -43,7 +43,7 @@ export const DefaultTestimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EBF0FD] text-primary border border-[#DCE5FE] font-bold text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold text-sm"
           >
             <Star className="w-4 h-4 fill-primary" />
             <span>{isAr ? "آراء طلابنا" : "Student Success Stories"}</span>

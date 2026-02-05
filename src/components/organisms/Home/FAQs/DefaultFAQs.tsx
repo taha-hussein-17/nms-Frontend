@@ -18,18 +18,18 @@ export const DefaultFAQs = () => {
   ];
 
   return (
-    <section className="pt-32 relative overflow-hidden bg-background">
+    <section className="py-[var(--section-py)] relative overflow-hidden bg-background">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.03)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none -ml-48 -mb-48" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[var(--container-max-width)] mx-auto px-[var(--section-px)] relative z-10">
         <div className="text-center mb-20 space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EBF0FD] text-primary border border-[#DCE5FE] font-bold text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold text-sm"
           >
             <CircleHelp className="w-4 h-4" />
             <span>{isAr ? "الأسئلة الشائعة" : "Common Questions"}</span>

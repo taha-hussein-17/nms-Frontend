@@ -137,11 +137,11 @@ export const DefaultClasses = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                   <div className="absolute top-6 left-6 flex gap-2">
-                    <Badge className="bg-[#DCE5FE] text-primary border border-primary px-4 py-1.5 font-bold">
+                    <Badge className="bg-primary/10 text-primary border border-primary/20 px-4 py-1.5 font-bold">
                       <span className="w-2 h-2 bg-primary rounded-full animate-pulse mr-1 inline-block" />
                       LIVE
                     </Badge>
-                    <Badge className="bg-[#DCE5FE] text-primary border border-primary px-4 py-1.5 font-bold">
+                    <Badge className="bg-primary/10 text-primary border border-primary/20 px-4 py-1.5 font-bold">
                       {live.category}
                     </Badge>
                   </div>
@@ -187,12 +187,20 @@ export const DefaultClasses = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-end mt-auto">
-                    <div className="flex items-center gap-2 text-muted-foreground font-bold">
-                      <span className="text-sm">{live.date}</span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                      <span className="text-sm">{live.time}</span>
-                    </div>
+                  <div className="flex items-center justify-between mt-auto w-full text-muted-foreground font-bold">
+                    {i18n.language === "ar" ? (
+                      <>
+                        <span className="text-sm">{live.time}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-600" />
+                        <span className="text-sm">{live.date}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-sm">{live.date}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-600" />
+                        <span className="text-sm">{live.time}</span>
+                      </>
+                    )}
                   </div>
 
                   <Button className="w-full rounded-2xl bg-primary text-white hover:bg-primary/90 font-bold h-12 shadow-lg shadow-primary/20 transition-all group/btn">

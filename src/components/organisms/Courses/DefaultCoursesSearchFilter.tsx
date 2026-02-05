@@ -8,7 +8,7 @@ import {
   List,
 } from "lucide-react";
 import { Input } from "../../atoms/Input";
-import { Button } from "../../atoms/Button";
+// import { Button } from "../../atoms/Button";
 import { cn } from "../../../utils/cn";
 import type { TFunction } from "i18next";
 
@@ -63,7 +63,7 @@ export const DefaultCoursesSearchFilter = ({
           <div className="relative flex-1 w-full">
             <Search
               className={cn(
-                "absolute top-1/2 -translate-y-1/2 text-primary w-5 h-5",
+                "absolute top-1/2 -translate-y-1/2 text-[#38414D] w-5 h-5",
                 isAr ? "right-6" : "left-6"
               )}
             />
@@ -71,7 +71,7 @@ export const DefaultCoursesSearchFilter = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={cn(
-                "h-14 rounded-2xl bg-white/5 border-white/10 focus:border-primary/50 focus:bg-white/10 transition-all text-lg  placeholder:text-slate-500",
+                "h-14 rounded-2xl bg-white/5 border-[#38414D] focus:border-primary/50 focus:bg-white/10 transition-all text-lg text-[#38414D] placeholder:text-slate-500",
                 isAr ? "pr-14 pl-6" : "pl-14 pr-6"
               )}
               placeholder={t("courses.search_placeholder")}
@@ -83,12 +83,14 @@ export const DefaultCoursesSearchFilter = ({
             {categories.slice(0, 5).map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() =>
+                  setSelectedCategory(selectedCategory === cat ? "All" : cat)
+                }
                 className={cn(
-                  "px-6 py-3 rounded-xl text-sm font-bold transition-all whitespace-nowrap border",
+                  "px-6 h-14 rounded-xl text-sm font-bold transition-all whitespace-nowrap border flex items-center justify-center",
                   selectedCategory === cat
-                    ? "bg-primary border-primary  shadow-lg shadow-primary/20"
-                    : "bg-white/5 border-white/10 text-slate-400 hover:text-white hover:/10"
+                    ? "bg-primary border-primary text-white shadow-lg shadow-primary/20"
+                    : "bg-white/5 border-[#38414D] text-[#38414D] hover:text-black hover:bg-white/10"
                 )}
               >
                 {cat === "All" ? (isAr ? "الكل" : "All") : cat}
@@ -98,27 +100,27 @@ export const DefaultCoursesSearchFilter = ({
 
           <div className="flex items-center gap-3 w-full lg:w-auto">
             {/* Advanced Filter Trigger */}
-            <Button
+            <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              variant="outline"
               className={cn(
-                "h-14 flex-1 lg:flex-none rounded-2xl border-white/10 bg-white/5 hover:bg-white/10  font-bold flex items-center gap-2 px-6",
-                isSidebarOpen && "border-primary text-primary bg-primary/10"
+                "h-14 flex-1 lg:flex-none rounded-2xl border border-[#38414D] bg-white/5 hover:bg-white/10 font-bold flex items-center gap-2 px-6 transition-all",
+                isSidebarOpen
+                  ? "border-primary text-primary bg-primary/10"
+                  : "text-[#38414D]"
               )}
             >
               <SlidersHorizontal className="w-5 h-5" />
               <span className="hidden sm:inline">{t("courses.filter")}</span>
-            </Button>
+            </button>
 
             {/* Sort Dropdown */}
             <div className="relative flex-1 lg:flex-none">
-              <Button
+              <button
                 onClick={() => setIsSortOpen(!isSortOpen)}
-                variant="outline"
-                className="h-14 w-full rounded-2xl border-white/10 bg-white/5 hover:bg-white/10  font-bold flex items-center justify-between gap-4 px-6"
+                className="h-14 w-full rounded-2xl border border-[#38414D] bg-white/5 hover:bg-white/10 text-[#38414D] font-bold flex items-center justify-between gap-4 px-6 transition-all"
               >
                 <div className="flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-primary" />
+                  <BarChart3 className="w-5 h-5 text-[#38414D]" />
                   <span className="truncate">{currentSortLabel}</span>
                 </div>
                 <ChevronDown
@@ -127,7 +129,7 @@ export const DefaultCoursesSearchFilter = ({
                     isSortOpen && "rotate-180"
                   )}
                 />
-              </Button>
+              </button>
 
               <AnimatePresence>
                 {isSortOpen && (
@@ -135,7 +137,10 @@ export const DefaultCoursesSearchFilter = ({
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full mt-2 right-0 w-56 glass border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-50"
+                    className={cn(
+                      "absolute top-full mt-2 w-56 bg-white border border-[#38414D] rounded-2xl overflow-hidden shadow-2xl z-50",
+                      isAr ? "left-0" : "right-0"
+                    )}
                   >
                     {sortOptions.map((opt) => (
                       <button
@@ -145,10 +150,11 @@ export const DefaultCoursesSearchFilter = ({
                           setIsSortOpen(false);
                         }}
                         className={cn(
-                          "w-full text-right p-4 text-sm font-bold transition-colors hover:bg-white/10",
+                          "w-full p-4 text-sm font-bold transition-colors hover:bg-slate-50",
+                          isAr ? "text-right" : "text-left",
                           sortBy === opt.value
                             ? "text-primary bg-primary/5"
-                            : "text-slate-300"
+                            : "text-[#38414D]"
                         )}
                       >
                         {opt.label}
@@ -160,14 +166,14 @@ export const DefaultCoursesSearchFilter = ({
             </div>
 
             {/* View Mode */}
-            <div className="hidden md:flex bg-white/5 p-1.5 rounded-2xl border border-white/10">
+            <div className="hidden md:flex bg-white/5 p-1.5 rounded-2xl border border-[#38414D]">
               <button
                 onClick={() => setViewMode("grid")}
                 className={cn(
                   "p-2.5 rounded-xl transition-all",
                   viewMode === "grid"
                     ? "bg-primary text-white shadow-lg"
-                    : "text-slate-500 hover:text-white"
+                    : "text-[#38414D] hover:text-black hover:bg-white/10"
                 )}
               >
                 <LayoutGrid className="w-5 h-5" />
@@ -178,7 +184,7 @@ export const DefaultCoursesSearchFilter = ({
                   "p-2.5 rounded-xl transition-all",
                   viewMode === "list"
                     ? "bg-primary text-white shadow-lg"
-                    : "text-slate-500 hover:text-white"
+                    : "text-[#38414D] hover:text-black hover:bg-white/10"
                 )}
               >
                 <List className="w-5 h-5" />

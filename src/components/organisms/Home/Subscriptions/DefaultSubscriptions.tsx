@@ -197,7 +197,7 @@ export const DefaultSubscriptions = () => {
                     "w-full rounded-[1.5rem] h-14 font-black text-lg group relative overflow-hidden transition-all",
                     plan.recommended
                       ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20"
-                      : "bg-[#EBF0FD] text-primary border border-primary hover:bg-primary hover:text-white"
+                      : "bg-primary/5 text-primary border border-primary/20 hover:bg-primary hover:text-white"
                   )}
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
@@ -228,17 +228,21 @@ export const DefaultSubscriptions = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-20 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500"
+          className="mt-20 flex flex-wrap justify-center items-center gap-8 md:gap-16 transition-all duration-500"
         >
-          <div className="text-sm font-black uppercase tracking-[0.3em]">
+          <div className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground">
             {i18n.language === "ar" ? "موثوق من:" : "Trusted By:"}
           </div>
-          <div className="text-xl font-black tracking-tighter">EDU-GLOBAL</div>
-          <div className="text-xl font-black tracking-tighter">
+          <div className="text-xl font-black tracking-tighter text-primary">
+            EDU-GLOBAL
+          </div>
+          <div className="text-xl font-black tracking-tighter text-primary">
             ACADEMY-PLUS
           </div>
-          <div className="text-xl font-black tracking-tighter">LEARN-TECH</div>
-          <div className="text-xl font-black tracking-tighter">
+          <div className="text-xl font-black tracking-tighter text-primary">
+            LEARN-TECH
+          </div>
+          <div className="text-xl font-black tracking-tighter text-primary">
             FUTURE-SKILLS
           </div>
         </motion.div>

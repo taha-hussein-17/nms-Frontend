@@ -141,7 +141,15 @@
       "course": "Course",
       "exam": "Exam"
     },
-    "for_child": "For student"
+    "for_child": "For student",
+    "programming_data_structures": "Programming - Data Structures",
+    "web_dev_live_session": "Web Development - Live Session",
+    "math_unit_final": "Math - Unit Final",
+    "math_class_child": "Math Class - {{name}}",
+    "science_exam_child": "Science Exam - {{name}}",
+    "design_course_child": "Design Course Live - {{name}}",
+    "ahmed": "Ahmed",
+    "sara": "Sara"
   },
   "exams": {
     "title": "Exams",
@@ -167,7 +175,18 @@
     "submit": "Submit Exam",
     "start_now": "Start Now",
     "start_exam": "Start Exam",
-    "view_answers": "View Answers"
+    "view_answers": "View Answers",
+    "math_term_final": "Math - Term Final",
+    "physics_unit_3": "Physics - Unit 3",
+    "arabic_language": "Arabic Language",
+    "programming_data_structures": "Programming - Data Structures",
+    "design_color_theory": "Design - Color Theory",
+    "am": "AM",
+    "pm": "PM",
+    "minutes": "Minutes",
+    "math_unit_final": "Math - Unit Final",
+    "science_review": "Science - Review",
+    "arabic": "Arabic"
   },
   "footer": {
     "platform": "Platform",

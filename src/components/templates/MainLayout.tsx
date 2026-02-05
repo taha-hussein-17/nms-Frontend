@@ -231,10 +231,12 @@ export const MainLayout = memo(({ children }: MainLayoutProps) => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="bg-primary text-white hover:bg-primary/90 gap-2 px-5 h-10 rounded-xl text-[14px] font-bold shadow-sm shadow-primary/20 transition-all hover:scale-105 active:scale-95"
+                        className="bg-primary text-white hover:bg-primary/90 hover:text-white gap-2 px-5 h-11 rounded-xl text-[14px] font-bold shadow-sm shadow-primary/20 transition-all hover:scale-105 active:scale-95"
                       >
-                        <User className="w-4.5 h-4.5 text-white" />
-                        {t("common.login")}
+                        <div className="flex items-center gap-2 pt-1">
+                          <User className="w-4.5 h-4.5 text-white" />
+                          {t("common.login")}
+                        </div>
                       </Button>
                     </Link>
                   )}

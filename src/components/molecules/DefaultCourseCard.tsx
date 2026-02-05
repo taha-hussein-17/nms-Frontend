@@ -75,7 +75,7 @@ export const DefaultCourseCard = memo(
         transition={{ duration: 0.4, ease: "easeOut" }}
         onClick={handleCardClick}
         className={cn(
-          "group relative flex bg-white border border-slate-200 hover:border-primary/20 rounded-[2.5rem] overflow-hidden transition-all duration-500 cursor-pointer",
+          "group relative flex bg-white border border-[#38414D]/20 hover:border-[#38414D]/40 rounded-[2.5rem] overflow-hidden transition-all duration-500 cursor-pointer shadow-sm hover:shadow-md",
           isHorizontal ? "flex-row h-64" : "flex-col h-full"
         )}
       >

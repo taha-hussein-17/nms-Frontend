@@ -25,24 +25,49 @@ const Courses = () => {
   const courses = useMemo(() => getMockCourses(i18n.language), [i18n.language]);
 
   const filteredCourses = useMemo(() => {
-    return courses.filter((course) => {
-      const matchesSearch = course.title
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-      const matchesCategory =
-        selectedCategory === "All" || course.category === selectedCategory;
-      const matchesLevel = selectedLevel === "All";
-      const matchesDuration = selectedDuration === "All";
-      const matchesRating = selectedRating === 0;
+    return courses
+      .filter((course) => {
+        const matchesSearch = course.title
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const matchesCategory =
+          selectedCategory === "All" || course.category === selectedCategory;
 
-      return (
-        matchesSearch &&
-        matchesCategory &&
-        matchesLevel &&
-        matchesDuration &&
-        matchesRating
-      );
-    });
+        // Level filtering
+        const matchesLevel =
+          selectedLevel === "All" ||
+          course.level?.toLowerCase() === selectedLevel.toLowerCase();
+
+        // Duration filtering
+        let matchesDuration = true;
+        if (selectedDuration !== "All") {
+          const hours = course.duration ? parseInt(course.duration) : 0;
+          if (selectedDuration === "short") matchesDuration = hours <= 10;
+          else if (selectedDuration === "medium")
+            matchesDuration = hours > 10 && hours <= 40;
+          else if (selectedDuration === "long") matchesDuration = hours > 40;
+        }
+
+        // Rating filtering
+        const matchesRating =
+          selectedRating === 0 || (course.rating || 0) >= selectedRating;
+
+        return (
+          matchesSearch &&
+          matchesCategory &&
+          matchesLevel &&
+          matchesDuration &&
+          matchesRating
+        );
+      })
+      .sort((a, b) => {
+        if (sortBy === "highest_rated")
+          return (b.rating || 0) - (a.rating || 0);
+        if (sortBy === "best_selling")
+          return (b.students || 0) - (a.students || 0);
+        // Default: newest (assuming we have a date field or just keep original order)
+        return 0;
+      });
   }, [
     courses,
     searchQuery,
@@ -50,6 +75,7 @@ const Courses = () => {
     selectedLevel,
     selectedDuration,
     selectedRating,
+    sortBy,
   ]);
 
   const categories = [
@@ -76,7 +102,7 @@ const Courses = () => {
 
       <CoursesHero isAr={isAr} t={t} />
 
-      <div className="container mx-auto px-4 -mt-20 relative z-20 pb-24">
+      <div className="container mx-auto px-4 -mt-28 relative z-20 pb-24">
         <CoursesSearchFilter
           isAr={isAr}
           t={t}

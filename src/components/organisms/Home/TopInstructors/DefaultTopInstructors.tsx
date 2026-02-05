@@ -33,7 +33,7 @@ export const DefaultTopInstructors = () => {
               i18n.language === "ar" ? "text-right" : "text-left"
             )}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EBF0FD] text-primary border border-[#DCE5FE] mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-6">
               <GraduationCap className="w-4 h-4" />
               <span className="text-sm font-bold tracking-wide uppercase">
                 {t("home.instructors_badge") || "Expert Instructors"}
@@ -96,7 +96,7 @@ export const DefaultTopInstructors = () => {
                       </div>
                     </div>
 
-                    <div className="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-black shadow-lg">
+                    <div className="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 rounded-full bg-secondary text-white text-xs font-black shadow-lg">
                       {ins.specialty.toUpperCase()}
                     </div>
                   </div>
@@ -138,13 +138,13 @@ export const DefaultTopInstructors = () => {
                         className="block"
                       >
                         <Button className="w-full rounded-2xl bg-[#EBF0FD] border border-primary text-primary hover:bg-primary hover:text-white font-bold transition-all group/btn">
-                          {t("home.view_profile") || "View Profile"}
                           <Award
                             className={cn(
                               "w-4 h-4 transition-transform group-hover/btn:scale-125",
-                              i18n.language === "ar" ? "mr-2" : "ml-2"
+                              i18n.language === "ar" ? "ml-2" : "mr-2"
                             )}
                           />
+                          {t("home.view_profile") || "View Profile"}
                         </Button>
                       </Link>
                     </div>

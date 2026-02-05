@@ -35,81 +35,115 @@ export const InstructorsFilters = ({
   setIsSortOpen,
   sortOptions,
 }: InstructorsFiltersProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === "ar";
 
   return (
-    <Reveal>
-      <div className="bg-card/70 glass backdrop-blur-3xl border-2 border-white/10 rounded-[3rem] p-4 mb-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sticky top-28">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={cn(
-                "px-8 py-4 rounded-2xl text-sm font-black transition-all duration-300 transform active:scale-95",
-                selectedCategory === cat.id
-                  ? "bg-primary text-white shadow-xl shadow-primary/20 scale-105"
-                  : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
-              )}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Sort Dropdown */}
-        <div className="relative w-full lg:w-auto">
-          <div className="flex items-center gap-3 px-6">
-            <span className="text-sm font-black text-muted-foreground whitespace-nowrap">
-              {t("instructor.sort_label")}
-            </span>
-            <button
-              onClick={() => setIsSortOpen(!isSortOpen)}
-              className="flex items-center justify-between gap-4 px-6 py-4 bg-secondary/50 hover:bg-secondary rounded-2xl border border-border/50 min-w-[200px] transition-all group"
-            >
-              <span className="font-black text-sm">
-                {sortOptions.find((opt) => opt.id === sortBy)?.label}
-              </span>
-              <ChevronDown
+    <div className="space-y-8 mb-12">
+      {/* Category Tabs - Sticky Bar */}
+      <Reveal>
+        <div className="bg-card/70 glass backdrop-blur-3xl border-2 border-white/10 rounded-[3rem] p-4 shadow-2xl flex items-center justify-center sticky top-28 z-30">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
                 className={cn(
-                  "w-5 h-5 transition-transform duration-300",
-                  isSortOpen && "rotate-180"
+                  "px-8 py-4 rounded-2xl text-sm font-black transition-all duration-300 transform active:scale-95",
+                  selectedCategory === cat.id
+                    ? "bg-primary text-white shadow-xl shadow-primary/20 scale-105"
+                    : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
                 )}
-              />
-            </button>
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Sort Dropdown - Above Cards, Right Aligned */}
+      <Reveal delay={0.2}>
+        <div
+          className={cn(
+            "flex items-center justify-between mb-6",
+            isAr ? "flex-row" : "flex-row-reverse"
+          )}
+        >
+          {/* Result Count or Label (Optional but adds balance) */}
+          <div className="hidden md:block">
+            <p className="text-[#445161] font-bold text-lg">
+              {isAr ? "المدربون المتميزون" : "Featured Instructors"}
+            </p>
           </div>
 
-          <AnimatePresence>
-            {isSortOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="absolute top-full right-6 left-6 lg:left-auto mt-2 w-auto min-w-[200px] bg-card glass border-2 border-white/10 rounded-2xl shadow-2xl p-2 z-50 overflow-hidden"
+          <div className="relative flex items-center gap-4">
+            <span className="text-sm font-black text-[#445161]/60 uppercase tracking-widest">
+              {t("instructor.sort_label")}
+            </span>
+            <div className="relative">
+              <button
+                onClick={() => setIsSortOpen(!isSortOpen)}
+                className={cn(
+                  "flex items-center justify-between gap-8 px-6 py-3.5 bg-white border-2 border-[#DCE5FE] rounded-2xl min-w-[240px] transition-all duration-300 group hover:border-primary hover:shadow-lg hover:shadow-primary/5",
+                  isSortOpen && "border-primary shadow-lg shadow-primary/5"
+                )}
               >
-                {sortOptions.map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => {
-                      setSortBy(opt.id);
-                      setIsSortOpen(false);
-                    }}
+                <span className="font-extrabold text-[#001133]">
+                  {sortOptions.find((opt) => opt.id === sortBy)?.label}
+                </span>
+                <div
+                  className={cn(
+                    "p-1 rounded-lg bg-[#EBF0FD] text-primary transition-transform duration-300",
+                    isSortOpen && "rotate-180 bg-primary text-white"
+                  )}
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </button>
+
+              <AnimatePresence>
+                {isSortOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    transition={{ type: "spring", damping: 20, stiffness: 300 }}
                     className={cn(
-                      "w-full text-right px-6 py-3 rounded-xl text-sm font-bold transition-all",
-                      sortBy === opt.id
-                        ? "bg-primary text-white"
-                        : "hover:bg-primary/10 text-muted-foreground hover:text-primary"
+                      "absolute top-full mt-3 w-full bg-white border-2 border-[#DCE5FE] rounded-2xl shadow-2xl p-2 z-50 overflow-hidden",
+                      isAr ? "right-0" : "left-0"
                     )}
                   >
-                    {opt.label}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                    {sortOptions.map((opt) => (
+                      <button
+                        key={opt.id}
+                        onClick={() => {
+                          setSortBy(opt.id);
+                          setIsSortOpen(false);
+                        }}
+                        className={cn(
+                          "w-full px-5 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 mb-1 last:mb-0",
+                          isAr ? "text-right" : "text-left",
+                          sortBy === opt.id
+                            ? "bg-[#EBF0FD] text-primary"
+                            : "hover:bg-slate-50 text-[#445161] hover:text-[#001133]"
+                        )}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>{opt.label}</span>
+                          {sortBy === opt.id && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          )}
+                        </div>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
-      </div>
-    </Reveal>
+      </Reveal>
+    </div>
   );
 };

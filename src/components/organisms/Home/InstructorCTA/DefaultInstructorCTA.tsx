@@ -48,7 +48,7 @@ export const DefaultInstructorCTA = () => {
   ];
 
   return (
-    <section className="pt-10 relative overflow-hidden bg-background">
+    <section className="py-[var(--section-py)] relative overflow-hidden bg-background">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-[var(--container-max-width)] mx-auto px-[var(--section-px)] relative z-10">
@@ -69,7 +69,7 @@ export const DefaultInstructorCTA = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EBF0FD] text-primary border border-[#DCE5FE] font-bold text-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold text-sm"
             >
               <Rocket className="w-4 h-4" />
               <span>

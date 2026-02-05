@@ -141,7 +141,15 @@
       "course": "كورس",
       "exam": "امتحان"
     },
-    "for_child": "للطالب"
+    "for_child": "للطالب",
+    "programming_data_structures": "حصة البرمجة - هياكل البيانات",
+    "web_dev_live_session": "كورس تطوير الويب - جلسة مباشرة",
+    "math_unit_final": "امتحان الرياضيات - نهاية الوحدة",
+    "math_class_child": "حصة رياضيات - {{name}}",
+    "science_exam_child": "امتحان علوم - {{name}}",
+    "design_course_child": "جلسة كورس التصميم - {{name}}",
+    "ahmed": "أحمد",
+    "sara": "سارة"
   },
   "exams": {
     "title": "الاختبارات",
@@ -167,7 +175,18 @@
     "submit": "إنهاء الاختبار",
     "start_now": "ابدأ الآن",
     "start_exam": "بدء الاختبار",
-    "view_answers": "عرض الإجابات"
+    "view_answers": "عرض الإجابات",
+    "math_term_final": "امتحان نهاية الترم - الرياضيات",
+    "physics_unit_3": "امتحان الفيزياء - الوحدة 3",
+    "arabic_language": "امتحان اللغة العربية",
+    "programming_data_structures": "اختبار البرمجة - هياكل البيانات",
+    "design_color_theory": "اختبار التصميم - نظرية الألوان",
+    "am": "صباحاً",
+    "pm": "مساءً",
+    "minutes": "دقيقة",
+    "math_unit_final": "رياضيات - نهاية الوحدة",
+    "science_review": "علوم - مراجعة",
+    "arabic": "لغة عربية"
   },
   "footer": {
     "platform": "المنصة",

@@ -9,7 +9,7 @@ interface CoursesHeroProps {
 
 export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
   return (
-    <div className="relative min-h-[60vh] flex items-center bg-[#0B0F19] overflow-hidden pt-20">
+    <div className="relative min-h-[60vh] flex items-center bg-[#001133] overflow-hidden pt-20">
       {/* Animated Background Gradients */}
       <motion.div
         animate={{
@@ -43,7 +43,7 @@ export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl text-primary font-bold text-sm mb-8 shadow-2xl"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#EBF0FD] border border-[#DCE5FE] backdrop-blur-xl text-[#001133] font-bold text-sm mb-8 shadow-2xl"
             >
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <Sparkles className="w-4 h-4" />
@@ -56,16 +56,12 @@ export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
               {isAr ? (
                 <>
                   طوّر مهاراتك مع{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary bg-[length:200%_auto] animate-gradient">
-                    أفضل الدورات
-                  </span>
+                  <span className="text-[#51A2FF]">أفضل الدورات</span>
                 </>
               ) : (
                 <>
                   Elevate Your Skills With{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary bg-[length:200%_auto] animate-gradient">
-                    Premium Courses
-                  </span>
+                  <span className="text-[#51A2FF]">Premium Courses</span>
                 </>
               )}
             </h1>
@@ -80,7 +76,7 @@ export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
-                      className="w-12 h-12 rounded-2xl border-4 border-[#0B0F19] bg-slate-800 overflow-hidden"
+                      className="w-12 h-12 rounded-2xl border-4 border-[#001133] bg-slate-800 overflow-hidden"
                     >
                       <img
                         src={`https://i.pravatar.cc/150?u=${i + 10}`}
@@ -117,7 +113,7 @@ export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
             className="hidden lg:block relative"
           >
             <div className="relative z-10 p-8 glass rounded-[4rem] border border-white/10 shadow-2xl  group">
-              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[4rem]" />
               <img
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Courses"
