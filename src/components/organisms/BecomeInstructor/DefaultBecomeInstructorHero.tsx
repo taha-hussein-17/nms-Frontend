@@ -14,7 +14,7 @@ export const DefaultBecomeInstructorHero = ({
   t,
 }: BecomeInstructorHeroProps) => {
   return (
-    <section className="relative bg-[#0F172A] pt-32 pb-48 overflow-hidden">
+    <section className="relative bg-[#001133] pt-32 pb-48 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
@@ -24,13 +24,13 @@ export const DefaultBecomeInstructorHero = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <div className={cn("space-y-8", isAr ? "text-right" : "text-left")}>
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-black uppercase tracking-widest backdrop-blur-md mb-4">
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#EBF0FD] border border-[#0D358C] text-[#0D358C] text-sm font-black uppercase tracking-widest backdrop-blur-md mb-4">
                 <Sparkles className="w-4 h-4" />
                 {isAr ? "انضم إلى نخبة المدربين" : "Join Elite Instructors"}
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.1]">
                 {t("become_instructor.hero.title")}{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 block mt-2">
+                <span className="text-[#51A2FF] block mt-2">
                   {t("become_instructor.hero.title_highlight")}
                 </span>
               </h1>

@@ -102,7 +102,7 @@ const Courses = () => {
 
       <CoursesHero isAr={isAr} t={t} />
 
-      <div className="container mx-auto px-4 -mt-28 relative z-20 pb-24">
+      <div className="container mx-auto px-4 -mt-14 relative z-20 pb-24">
         <CoursesSearchFilter
           isAr={isAr}
           t={t}

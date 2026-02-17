@@ -50,6 +50,8 @@ export const MainLayout = memo(({ children }: MainLayoutProps) => {
   const isAzhari = theme === "azhari";
   const isUni = theme === "uni";
 
+  const isDashboard = location.pathname.startsWith(ROUTES.DASHBOARD);
+
   const navigation = [
     { name: t("nav.home"), href: ROUTES.HOME, icon: LayoutIcon },
     { name: t("nav.courses"), href: ROUTES.COURSES, icon: BookOpen },
@@ -80,7 +82,8 @@ export const MainLayout = memo(({ children }: MainLayoutProps) => {
       {/* Navigation Bar */}
       <nav
         className={cn(
-          "sticky top-0 z-50 w-full glass border-b border-border/40 transition-all duration-500",
+          isDashboard ? "relative" : "fixed top-0",
+          "z-50 w-full glass border-b border-border/40 transition-all duration-500",
           config.navHeight,
           isKids && "border-b-4 border-secondary/20 shadow-lg",
           isCoders && "bg-black border-b-2 border-green-500",
@@ -366,6 +369,9 @@ export const MainLayout = memo(({ children }: MainLayoutProps) => {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Spacer for fixed navbar */}
+      {!isDashboard && <div className={cn("w-full", config.navHeight)} />}
 
       {/* Main Content */}
       <main className="flex-1 w-full">{children}</main>

@@ -9,7 +9,7 @@ const Privacy = () => {
     <MainLayout>
       <div className="container mx-auto px-4 py-24 max-w-4xl">
         <Reveal>
-          <h1 className="text-4xl font-bold mb-8">{t("privacy.title")}</h1>
+          <h1 className="text-4xl font-bold mb-8 text-primary">{t("privacy.title")}</h1>
         </Reveal>
         <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
           <Reveal delay={0.1}>

@@ -18,7 +18,7 @@ const Contact = () => {
 
       <ContactHero isAr={isAr} />
 
-      <div className="-mt-32 relative z-20 pb-32">
+      <div className="relative z-20 pb-32">
         <ContactUs />
       </div>
 

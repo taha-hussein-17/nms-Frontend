@@ -3,14 +3,14 @@ import { motion, useInView, useAnimation } from "framer-motion";
 
 interface Props {
   children: React.ReactNode;
-  width?: "fit-content" | "100%";
+  width?:  "100%";
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
 }
 
 export const Reveal = ({
   children,
-  width = "fit-content",
+  width = "100%",
   delay = 0.25,
   direction = "up",
 }: Props) => {

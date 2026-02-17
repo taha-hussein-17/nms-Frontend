@@ -30,19 +30,15 @@ export const DefaultBecomeInstructorStats = ({
 
   return (
     <section className="container mx-auto px-4 mb-32 ">
-      <div className="relative py-20 bg-indigo-500 rounded-[4rem] overflow-hidden m-auto bg-gray">
-        <div className="absolute d-flex justify-center align-items-center inset-0 bg-amber-800 glass border-2 border-white/5 shadow-2xl"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] -ml-48 -mb-48"></div>
-
+      <div className="relative py-20 bg-[#EBF0FD] rounded-[4rem] overflow-hidden m-auto">
         <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8 place-items-center text-center">
           {stats.map((stat, index) => (
             <Reveal key={index} delay={index * 0.1}>
               <div className="space-y-4 group">
-                <div className="text-4xl lg:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-500 text-white">
+                <div className="text-4xl lg:text-6xl font-black mb-2 group-hover:scale-110 transition-transform duration-500 text-[#0D358C]">
                   {stat.value}
                 </div>
-                <div className="text-primary font-black uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+                <div className="text-[#0D358C] font-black uppercase tracking-widest text-sm flex items-center justify-center gap-2">
                   <stat.icon className="w-4 h-4" />
                   {stat.label}
                 </div>

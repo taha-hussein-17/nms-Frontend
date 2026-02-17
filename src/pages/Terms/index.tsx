@@ -8,9 +8,12 @@ const Terms = () => {
 
   return (
     <MainLayout>
-      <div className="container mx-auto px-4 py-24 max-w-4xl">
+      <div
+        className="container mx-auto px-4 py-24 max-w-4xl text-left"
+        dir="ltr"
+      >
         <Reveal>
-          <h1 className="text-4xl font-bold mb-8">
+          <h1 className="text-4xl font-bold mb-8 text-[#0D358C]">
             {isAr ? "الشروط والأحكام" : "Terms & Conditions"}
           </h1>
         </Reveal>

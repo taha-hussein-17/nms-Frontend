@@ -38,7 +38,7 @@ export const Footer = () => {
     ],
     support: [
       { name: t("footer.become_instructor"), href: ROUTES.BECOME_INSTRUCTOR },
-      { name: t("home.faqs.title"), href: "#" },
+      { name: t("home.faqs.title"), href: ROUTES.FAQ },
       { name: t("footer.terms"), href: ROUTES.TERMS },
       { name: t("footer.privacy"), href: ROUTES.PRIVACY },
     ],

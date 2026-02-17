@@ -9,7 +9,7 @@ interface CoursesHeroProps {
 
 export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
   return (
-    <div className="relative min-h-[60vh] flex items-center bg-[#001133] overflow-hidden pt-20">
+    <div className="relative min-h-[60vh] flex items-center bg-[#001133] overflow-hidden py-20">
       {/* Animated Background Gradients */}
       <motion.div
         animate={{
@@ -46,8 +46,9 @@ export const DefaultCoursesHero = ({ isAr, t }: CoursesHeroProps) => {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#EBF0FD] border border-[#DCE5FE] backdrop-blur-xl text-[#001133] font-bold text-sm mb-8 shadow-2xl"
             >
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <Sparkles className="w-4 h-4" />
-              <span className="tracking-wide uppercase">
+              <Sparkles className="w-4 h-4"  style={{color: "#0D358C", borderColor: "#0D358C"}} />
+              <span className="tracking-wide uppercase " style={{color: "#0D358C", borderColor: "#0D358C"}}>
+    
                 {isAr ? "اكتشف مستقبلك التعليمي" : "Discover Your Future"}
               </span>
             </motion.div>

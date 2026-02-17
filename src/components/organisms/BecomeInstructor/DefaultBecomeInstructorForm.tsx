@@ -38,7 +38,7 @@ export const DefaultBecomeInstructorForm = ({
   return (
     <section
       id="apply-form"
-      className="py-32 relative overflow-hidden bg-secondary/20"
+      className="pb-32 relative overflow-hidden bg-secondary/20"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('/grid.svg')] bg-center opacity-5" />
 
@@ -46,11 +46,11 @@ export const DefaultBecomeInstructorForm = ({
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-black uppercase tracking-widest backdrop-blur-md mb-6">
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#EBF0FD] border border-[#DCE5FE] text-[#0D358C] text-sm font-black uppercase tracking-widest backdrop-blur-md mb-6">
                 <FileText className="w-4 h-4" />
                 {isAr ? "نموذج التقديم" : "Application Form"}
               </div>
-              <h2 className="text-4xl lg:text-6xl font-black mb-6 text-white">
+              <h2 className="text-4xl lg:text-6xl font-black mb-6">
                 {t("become_instructor.form.title")}
               </h2>
               <p className="text-xl text-muted-foreground font-medium">
@@ -62,7 +62,7 @@ export const DefaultBecomeInstructorForm = ({
           <Reveal delay={0.2}>
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[3rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-              <div className="relative bg-card glass border-2 border-white/10 rounded-[3rem] p-10 lg:p-16 shadow-2xl overflow-hidden">
+              <div className="relative bg-white border-2 border-[#C7CED9] rounded-[3rem] p-10 lg:p-16 shadow-2xl overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -ml-32 -mb-32" />
 
@@ -96,7 +96,7 @@ export const DefaultBecomeInstructorForm = ({
                             "become_instructor.form.full_name_placeholder"
                           )}
                           className={cn(
-                            "w-full h-16 bg-secondary/50 border-2 border-transparent focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
+                            "w-full h-16 bg-secondary/80 border-2 border-[#DCE5FE] focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
                             isAr ? "pr-16 text-right" : "pl-16 text-left"
                           )}
                         />
@@ -131,7 +131,7 @@ export const DefaultBecomeInstructorForm = ({
                           {...register("email")}
                           placeholder="example@email.com"
                           className={cn(
-                            "w-full h-16 bg-secondary/50 border-2 border-transparent focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
+                            "w-full h-16 bg-secondary/80 border-2 border-[#DCE5FE] focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
                             isAr ? "pr-16 text-right" : "pl-16 text-left"
                           )}
                         />
@@ -169,7 +169,7 @@ export const DefaultBecomeInstructorForm = ({
                           "become_instructor.form.specialty_placeholder"
                         )}
                         className={cn(
-                          "w-full h-16 bg-secondary/50 border-2 border-transparent focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
+                          "w-full h-16 bg-secondary/80 border-2 border-[#DCE5FE] focus:border-primary/30 focus:bg-background rounded-2xl outline-none transition-all font-bold text-lg",
                           isAr ? "pr-16 text-right" : "pl-16 text-left"
                         )}
                       />
@@ -198,7 +198,7 @@ export const DefaultBecomeInstructorForm = ({
                       )}
                       rows={5}
                       className={cn(
-                        "w-full p-8 bg-secondary/50 border-2 border-transparent focus:border-primary/30 focus:bg-background rounded-[2rem] outline-none transition-all font-bold text-lg resize-none",
+                        "w-full p-8 bg-secondary/80 border-2 border-[#DCE5FE] focus:border-primary/30 focus:bg-background rounded-[2rem] outline-none transition-all font-bold text-lg resize-none",
                         isAr ? "text-right" : "text-left"
                       )}
                     />
@@ -218,13 +218,13 @@ export const DefaultBecomeInstructorForm = ({
                       <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" />
                     ) : (
                       <>
-                        {t("become_instructor.form.submit")}
                         <Send
                           className={cn(
                             "w-6 h-6",
                             isAr ? "rotate-180" : "rotate-0"
                           )}
                         />
+                        {t("become_instructor.form.submit")}
                       </>
                     )}
                   </Button>

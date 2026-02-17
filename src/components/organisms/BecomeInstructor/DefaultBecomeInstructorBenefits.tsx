@@ -35,7 +35,7 @@ export const DefaultBecomeInstructorBenefits = ({
   ];
 
   return (
-    <section className="py-32 relative -mt-24 z-20">
+    <section className="pt-40 pb-32 relative -mt-24 z-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <Reveal>
@@ -50,7 +50,7 @@ export const DefaultBecomeInstructorBenefits = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <Reveal key={index} delay={index * 0.1}>
-              <div className="p-10 rounded-[3rem] bg-card glass border-2 border-transparent hover:border-primary/20 transition-all duration-500 group shadow-xl">
+              <div className="p-10 rounded-[3rem] bg-card glass border-2 border-[#C7CED9] hover:border-primary/20 transition-all duration-500 group shadow-xl">
                 <div
                   className={cn(
                     "w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg",

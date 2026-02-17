@@ -66,9 +66,9 @@ export const DefaultContactUs = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary/10 border-2 border-primary/20 text-primary font-black text-sm uppercase tracking-widest backdrop-blur-md shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#EBF0FD] border-2 border-[#0D358C] text-[#0D358C] font-black text-sm uppercase tracking-widest backdrop-blur-md shadow-sm"
               >
-                <Sparkles className="w-4 h-4 fill-current" />
+                <Sparkles className="w-4 fill-current" />
                 <span>{isAr ? "تواصل معنا" : "Get in Touch"}</span>
               </motion.div>
 

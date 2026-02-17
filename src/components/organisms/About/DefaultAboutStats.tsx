@@ -43,7 +43,7 @@ export const DefaultAboutStats = ({ t }: AboutStatsProps) => {
     <section className="py-32 bg-secondary/20 relative">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]" />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-card glass border-2 border-primary/10 rounded-[4rem] p-12 md:p-20 shadow-2xl shadow-black/5">
+        <div className="bg-card glass border-2 border-[#C7CED9] rounded-[4rem] p-12 md:p-20 shadow-2xl shadow-black/5">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
             {stats.map((stat, index) => (
               <Reveal key={index} delay={index * 0.1}>
