@@ -39,9 +39,18 @@ import {
   DollarSign,
   User,
   Settings,
+  ShoppingCart,
+  Headphones,
+  Award,
 } from "lucide-react";
 import DashboardHeader from "../../components/organisms/DashboardHeader";
 import { StudentMessages } from "../../features/dashboard/components/StudentMessages";
+import { StudentCertificates } from "../../features/dashboard/components/StudentCertificates";
+import { StudentAssignments } from "../../features/dashboard/components/StudentAssignments";
+import { CoursesContent } from "../Courses";
+import { CartContent } from "../Cart";
+import { InstructorsContent } from "../Instructors";
+import { ContactContent } from "../Contact";
 import ParentPayments from "../../features/dashboard/components/ParentPayments";
 import NotificationsPage from "../../features/dashboard/components/NotificationsPage";
 
@@ -83,7 +92,9 @@ const Dashboard = () => {
         case "settings":
           return <StudentSettings />; // Assuming parents also use StudentSettings
         case "profile":
-          return <StudentProfile />; // Assuming parents also use StudentProfile
+          return <StudentProfile />;
+        case "support":
+          return <ContactContent />; // Assuming parents also use StudentProfile
         default:
           return <ParentDashboard user={user} />;
       }
@@ -93,12 +104,22 @@ const Dashboard = () => {
           return <StudentDashboard user={user} />;
         case "courses":
           return <StudentCourses />;
+        case "buy-courses":
+          return <CoursesContent />;
+        case "cart":
+          return <CartContent />;
+        case "instructors":
+          return <InstructorsContent />;
+        case "assignments":
+          return <StudentAssignments />;
         case "calendar":
           return <StudentCalendar />;
         case "exams":
           return <StudentExams />;
         case "reports":
           return <StudentReports />;
+        case "certificates":
+          return <StudentCertificates />;
         case "messages":
           return <StudentMessages />;
         case "notifications":
@@ -107,6 +128,8 @@ const Dashboard = () => {
           return <StudentSettings />;
         case "profile":
           return <StudentProfile />;
+        case "support":
+          return <ContactContent />;
         default:
           return <StudentDashboard user={user} />;
       }
@@ -131,6 +154,28 @@ const Dashboard = () => {
       title: "dashboard.sidebar.courses",
       icon: BookOpen,
       path: ROUTES.DASHBOARD_COURSES,
+      children: [
+        {
+          title: "dashboard.sidebar.my_courses",
+          icon: BookOpen,
+          path: ROUTES.DASHBOARD_COURSES,
+        },
+        {
+          title: "dashboard.sidebar.buy_course",
+          icon: ShoppingCart,
+          path: ROUTES.DASHBOARD_BUY_COURSES,
+        },
+      ],
+    },
+    {
+      title: "dashboard.sidebar.cart",
+      icon: ShoppingCart,
+      path: ROUTES.DASHBOARD_CART,
+    },
+    {
+      title: "dashboard.sidebar.instructors",
+      icon: UsersIcon,
+      path: ROUTES.DASHBOARD_INSTRUCTORS,
     },
     {
       title: "dashboard.sidebar.assignments",
@@ -151,6 +196,11 @@ const Dashboard = () => {
       title: "dashboard.sidebar.reports",
       icon: BarChart3,
       path: ROUTES.DASHBOARD_REPORTS,
+    },
+    {
+      title: "dashboard.sidebar.certificates",
+      icon: Award,
+      path: ROUTES.DASHBOARD_CERTIFICATES,
     },
     {
       title: "dashboard.sidebar.messages",
@@ -220,6 +270,11 @@ const Dashboard = () => {
       title: "dashboard.sidebar.settings",
       icon: Settings,
       path: ROUTES.DASHBOARD_SETTINGS,
+    },
+    {
+      title: "dashboard.sidebar.support",
+      icon: Headphones,
+      path: ROUTES.DASHBOARD_SUPPORT,
     },
   ];
 

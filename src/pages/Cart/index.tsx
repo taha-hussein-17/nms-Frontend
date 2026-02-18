@@ -8,7 +8,7 @@ import { CartEmptyState } from "../../components/organisms/Cart/EmptyState";
 import { CartItemRow } from "../../components/organisms/Cart/ItemRow";
 import { CartSummary } from "../../components/organisms/Cart/Summary";
 
-const Cart = () => {
+export const CartContent = () => {
   const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const dispatch = useAppDispatch();
@@ -25,33 +25,39 @@ const Cart = () => {
   }, 0);
 
   return (
-    <MainLayout>
-      <div className="container mx-auto px-4 py-20">
-        <CartHeader count={items.length} />
+    <div className="container mx-auto px-4 py-20">
+      <CartHeader count={items.length} />
 
-        {items.length === 0 ? (
-          <CartEmptyState />
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Items List */}
-            <div className="lg:col-span-2 space-y-6">
-              {items.map((item, index) => (
-                <Reveal key={item.id} delay={index * 0.1}>
-                  <CartItemRow
-                    item={item}
-                    onRemove={(id) => dispatch(removeFromCart(id))}
-                  />
-                </Reveal>
-              ))}
-            </div>
-
-            {/* Summary */}
-            <div className="lg:col-span-1">
-              <CartSummary subtotal={subtotal} isAr={isAr} />
-            </div>
+      {items.length === 0 ? (
+        <CartEmptyState />
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Items List */}
+          <div className="lg:col-span-2 space-y-6">
+            {items.map((item, index) => (
+              <Reveal key={item.id} delay={index * 0.1}>
+                <CartItemRow
+                  item={item}
+                  onRemove={(id) => dispatch(removeFromCart(id))}
+                />
+              </Reveal>
+            ))}
           </div>
-        )}
-      </div>
+
+          {/* Summary */}
+          <div className="lg:col-span-1">
+            <CartSummary subtotal={subtotal} isAr={isAr} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Cart = () => {
+  return (
+    <MainLayout>
+      <CartContent />
     </MainLayout>
   );
 };

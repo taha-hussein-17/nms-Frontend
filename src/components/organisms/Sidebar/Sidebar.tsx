@@ -1,17 +1,26 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "../../../utils/cn";
 import type { Location } from "react-router-dom";
 import {
-  Globe,
   LogOut,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../providers/ThemeContext";
 import { THEME_CONFIGS } from "../../../constants/themeRegistry";
+import Logo from "../../../assets/logo/icon.png";
+
+interface MenuItem {
+  title: string;
+  icon: LucideIcon;
+  path: string;
+  children?: { title: string; icon: LucideIcon; path: string }[];
+}
 
 interface SidebarProps {
   isOpen: boolean;
@@ -19,8 +28,8 @@ interface SidebarProps {
   isMobile?: boolean;
   onMobileClose?: () => void;
   onLogout: () => void;
-  menuItems: { title: string; icon: LucideIcon; path: string }[];
-  bottomMenuItems: { title: string; icon: LucideIcon; path: string }[];
+  menuItems: MenuItem[];
+  bottomMenuItems: MenuItem[];
   user?: { name?: string; role?: string } | null;
   isAr?: boolean;
   location: Location;
@@ -38,6 +47,14 @@ export const Sidebar = ({
   t,
 }: SidebarProps) => {
   const { theme } = useTheme();
+  const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+
+  const toggleMenu = (path: string) => {
+    setExpandedMenus((prev) =>
+      prev.includes(path) ? prev.filter((p) => p !== path) : [...prev, path]
+    );
+  };
+
   const config =
     THEME_CONFIGS[theme as keyof typeof THEME_CONFIGS] || THEME_CONFIGS.default;
   const isKids = theme === "kids";
@@ -72,26 +89,27 @@ export const Sidebar = ({
         >
           <div
             className={cn(
-              "w-9 h-9 bg-primary flex items-center justify-center text-white font-black text-lg shadow-lg shadow-primary/30",
+              "h-9 bg-primary flex items-center justify-center text-white font-black text-lg shadow-lg shadow-primary/30",
               config.borderRadius,
               isCoders && "bg-green-500 text-black shadow-green-500/50",
               isAzhari && "bg-primary shadow-primary/20",
               isUni && "bg-primary shadow-primary/20"
             )}
+            style={{ width: "130px" }}
           >
-            {isKids ? <Sparkles size={20} /> : isCoders ? ">_" : "N"}
-          </div>
-          <span
-            className={cn(
-              "text-lg font-black tracking-tighter transition-opacity duration-200",
-              !isOpen && "opacity-0",
-              isKids && "text-xl text-primary",
-              isCoders && "font-mono text-green-500 tracking-normal",
-              isAzhari && "font-serif tracking-tight"
+            {isKids ? (
+              <Sparkles size={20} />
+            ) : isCoders ? (
+              ">_"
+            ) : (
+              <img
+                src={Logo}
+                alt="Logo"
+                className="h-5 object-contain brightness-0 invert"
+                style={{ width: "100%" }}
+              />
             )}
-          >
-            {isKids ? "WAKP Kids" : isCoders ? "WAKP.sh" : "WAKP."}
-          </span>
+          </div>
         </div>
 
         <button
@@ -116,49 +134,129 @@ export const Sidebar = ({
         </button>
       </div>
 
-      <nav className="flex-1 px-2.5 space-y-1.5">
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={cn(
-              "flex items-center gap-2.5 px-2.5 py-2.5 font-bold transition-all duration-200 group relative",
-              config.borderRadius,
-              location.pathname === item.path ||
-                (item.path !== "/dashboard" &&
-                  location.pathname.startsWith(item.path))
-                ? "bg-primary text-white shadow-lg shadow-primary/20"
-                : "text-muted-foreground hover:bg-secondary/80 hover:text-foreground",
-              isKids && "text-lg"
-            )}
-          >
-            <item.icon
-              size={isKids ? 22 : 18}
-              className={
-                "shrink-0 transition-transform duration-300 group-hover:scale-110"
-              }
-            />
-            <span
+      <nav className="flex-1 px-2.5 space-y-1.5 overflow-y-auto scrollbar-hide">
+        {menuItems.map((item) => {
+          const isActive =
+            location.pathname === item.path ||
+            (item.path !== "/dashboard" &&
+              location.pathname.startsWith(item.path));
+          const hasChildren = item.children && item.children.length > 0;
+          const isExpanded = expandedMenus.includes(item.path);
+
+          if (hasChildren) {
+            return (
+              <div key={item.path} className="space-y-1">
+                <button
+                  onClick={() => {
+                    if (!isOpen) setIsOpen(true);
+                    toggleMenu(item.path);
+                  }}
+                  className={cn(
+                    "w-full flex items-center justify-between gap-2.5 px-2.5 py-2.5 font-bold transition-all duration-200 group relative",
+                    config.borderRadius,
+                    isActive
+                      ? "bg-primary text-white shadow-lg shadow-primary/20"
+                      : "text-muted-foreground hover:bg-secondary/80 hover:text-foreground",
+                    isKids && "text-lg"
+                  )}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <item.icon
+                      size={isKids ? 22 : 18}
+                      className={
+                        "shrink-0 transition-transform duration-300 group-hover:scale-110"
+                      }
+                    />
+                    <span
+                      className={cn(
+                        "transition-all duration-200 whitespace-nowrap overflow-hidden ml-0.5",
+                        !isOpen && "opacity-0 max-w-0"
+                      )}
+                    >
+                      {t(item.title)}
+                    </span>
+                  </div>
+                  {isOpen && (
+                    <ChevronDown
+                      size={16}
+                      className={cn(
+                        "transition-transform duration-200",
+                        isExpanded && "rotate-180"
+                      )}
+                    />
+                  )}
+                </button>
+                <AnimatePresence>
+                  {isExpanded && isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden space-y-1 pl-4"
+                    >
+                      {item.children?.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          className={cn(
+                            "flex items-center gap-2 px-2.5 py-2 text-sm font-medium transition-colors rounded-lg",
+                            location.pathname === child.path
+                              ? "bg-primary/10 text-primary"
+                              : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                          )}
+                        >
+                          {child.icon && <child.icon size={16} />}
+                          <span>{t(child.title)}</span>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          }
+
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
               className={cn(
-                "transition-all duration-200 whitespace-nowrap overflow-hidden ml-0.5",
-                !isOpen && "opacity-0 max-w-0"
+                "flex items-center gap-2.5 px-2.5 py-2.5 font-bold transition-all duration-200 group relative",
+                config.borderRadius,
+                isActive
+                  ? "bg-primary text-white shadow-lg shadow-primary/20"
+                  : "text-muted-foreground hover:bg-secondary/80 hover:text-foreground",
+                isKids && "text-lg"
               )}
             >
-              {t(item.title)}
-            </span>
-            {isKids && location.pathname === item.path && (
-              <Sparkles className="absolute right-2 top-2 w-4 h-4 text-white/50 animate-pulse" />
-            )}
-            {!isOpen && location.pathname === item.path && (
-              <div
-                className={cn(
-                  "absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary",
-                  isKids ? "rounded-r-full h-8" : "rounded-r-md"
-                )}
+              <item.icon
+                size={isKids ? 22 : 18}
+                className={
+                  "shrink-0 transition-transform duration-300 group-hover:scale-110"
+                }
               />
-            )}
-          </Link>
-        ))}
+              <span
+                className={cn(
+                  "transition-all duration-200 whitespace-nowrap overflow-hidden ml-0.5",
+                  !isOpen && "opacity-0 max-w-0"
+                )}
+              >
+                {t(item.title)}
+              </span>
+              {isKids && isActive && (
+                <Sparkles className="absolute right-2 top-2 w-4 h-4 text-white/50 animate-pulse" />
+              )}
+              {!isOpen && isActive && (
+                <div
+                  className={cn(
+                    "absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary",
+                    isKids ? "rounded-r-full h-8" : "rounded-r-md"
+                  )}
+                />
+              )}
+            </Link>
+          );
+        })}
       </nav>
 
       <div
@@ -193,27 +291,6 @@ export const Sidebar = ({
             </span>
           </Link>
         ))}
-
-        <Link
-          to="/"
-          className={cn(
-            "flex items-center gap-2.5 px-2.5 py-2.5 font-bold text-muted-foreground hover:bg-secondary/80 hover:text-foreground transition-colors duration-200 group relative",
-            config.borderRadius
-          )}
-        >
-          <Globe
-            size={20}
-            className="shrink-0 group-hover:rotate-12 transition-transform"
-          />
-          <span
-            className={cn(
-              "transition-all duration-300 whitespace-nowrap overflow-hidden",
-              !isOpen && "w-0 opacity-0"
-            )}
-          >
-            {t("dashboard.back_to_website")}
-          </span>
-        </Link>
 
         <button
           onClick={onLogout}

@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import { ContactHero } from "../../components/organisms/Contact/Hero";
 import { ContactSupport } from "../../components/organisms/Contact/Support";
 
-const Contact = () => {
+export const ContactContent = () => {
   const { i18n, t } = useTranslation();
   const isAr = i18n.language === "ar";
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title={t("home.contact.title")}
         description={t("home.contact.description")}
@@ -23,6 +23,14 @@ const Contact = () => {
       </div>
 
       <ContactSupport isAr={isAr} />
+    </>
+  );
+};
+
+const Contact = () => {
+  return (
+    <MainLayout>
+      <ContactContent />
     </MainLayout>
   );
 };

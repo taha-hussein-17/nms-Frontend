@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../../providers/ThemeContext";
+import { useSearchParams } from "react-router-dom";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const THEME_COURSES_CONFIGS: any = {
@@ -131,14 +132,47 @@ const courses = [
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
   },
+  {
+    id: 4,
+    title: {
+      kids: "المبرمج الصغير المحترف",
+      coders: "Advanced React Patterns",
+      azhari: "علوم القرآن",
+      uni: "Software Engineering Ethics",
+      default: "أساسيات البرمجة",
+    },
+    instructor: {
+      kids: "كابتن كود",
+      coders: "Sarah Connor",
+      azhari: "د. أحمد علي",
+      uni: "Prof. John Doe",
+      default: "أ. محمد أحمد",
+    },
+    progress: 100,
+    lessons: 20,
+    completedLessons: 20,
+    lastAccessed: "منذ أسبوع",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop",
+  },
 ];
 
 export const StudentCourses = () => {
   const { t } = useTranslation();
   const { theme } = useTheme();
+  const [searchParams] = useSearchParams();
+  const filter = searchParams.get("filter");
+
   const config =
     THEME_COURSES_CONFIGS[theme as keyof typeof THEME_COURSES_CONFIGS] ||
     THEME_COURSES_CONFIGS.default;
+
+  const filteredCourses = courses.filter((course) => {
+    if (filter === "completed") {
+      return course.progress === 100;
+    }
+    return true;
+  });
 
   return (
     <div className={`space-y-8 ${config.fontClass}`}>
@@ -158,13 +192,14 @@ export const StudentCourses = () => {
             className={`${config.badgeBg} px-4 py-2 rounded-xl text-sm font-black flex items-center gap-2`}
           >
             {config.icon}
-            {courses.length} {theme === "kids" ? "مغامرات ممتعة" : "دورات نشطة"}
+            {filteredCourses.length}{" "}
+            {theme === "kids" ? "مغامرات ممتعة" : "دورات نشطة"}
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {courses.map((course, index) => (
+        {filteredCourses.map((course, index) => (
           <motion.div
             key={course.id}
             initial={{ opacity: 0, y: 20 }}

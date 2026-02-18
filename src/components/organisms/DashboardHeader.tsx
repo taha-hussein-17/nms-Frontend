@@ -18,10 +18,9 @@ export const DashboardHeader: React.FC<Props> = ({
   isSidebarOpen,
   setIsSidebarOpen,
   setIsMobileMenuOpen,
-  user,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-background/70 backdrop-blur-md border-b border-secondary px-4 md:px-6 py-3 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 bg-background/70 backdrop-blur-md border border-secondary rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between gap-4 mb-6 shadow-sm">
       <div className="flex items-center gap-3">
         <button
           className="md:hidden p-2 rounded-lg hover:bg-secondary/80 cursor-pointer"
@@ -40,19 +39,18 @@ export const DashboardHeader: React.FC<Props> = ({
         </button>
 
         <div>
-          <h1 className="text-lg font-extrabold">
+          <h1 className="text-lg font-extrabold text-[#0D358C]">
             {title || (isAr ? "لوحة التحكم" : "Dashboard")}
           </h1>
-          <p className="text-xs text-muted-foreground">{user?.name}</p>
         </div>
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="hidden sm:flex items-center gap-2 bg-secondary/5 rounded-full px-3 py-1">
-          <Search className="w-4 h-4 text-muted-foreground" />
+        <div className="hidden sm:flex items-center gap-2 border border-[#0D358C] rounded-xl px-3 py-1.5">
+          <Search className="w-4 h-4 text-[#0D358C]" />
           <input
             placeholder={isAr ? "ابحث" : "Search"}
-            className="bg-transparent outline-none text-sm"
+            className="bg-transparent outline-none text-sm text-[#0D358C] placeholder-[#0D358C] translate-y-[1px]"
           />
         </div>
         {/* container for notification & languge toggle and theme toggle */}

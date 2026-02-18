@@ -8,7 +8,7 @@ import { CoursesSearchFilter } from "../../components/organisms/Courses/SearchFi
 import { CoursesSidebar } from "../../components/organisms/Courses/Sidebar";
 import { CoursesList } from "../../components/organisms/Courses/List";
 
-const Courses = () => {
+export const CoursesContent = () => {
   const { t, i18n } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -97,7 +97,7 @@ const Courses = () => {
   )?.label;
 
   return (
-    <MainLayout>
+    <>
       <SEO title={t("courses.title")} description={t("courses.description")} />
 
       <CoursesHero isAr={isAr} t={t} />
@@ -148,6 +148,14 @@ const Courses = () => {
           />
         </div>
       </div>
+    </>
+  );
+};
+
+const Courses = () => {
+  return (
+    <MainLayout>
+      <CoursesContent />
     </MainLayout>
   );
 };

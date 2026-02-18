@@ -14,6 +14,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../constants/routes";
 import {
   BookOpen,
   Clock,
@@ -115,7 +117,7 @@ const sampleStats = (t: any, userRole?: string, theme = "default") => {
   const base = [
     {
       key: "courses",
-      label: t("dashboard.enrolled_courses", "Enrolled"),
+      label: t("dashboard.enrolled_courses", "Enrolled Courses"),
       value: "12",
       icon: BookOpen,
       color: config.statsColors[0],
@@ -123,7 +125,7 @@ const sampleStats = (t: any, userRole?: string, theme = "default") => {
     },
     {
       key: "hours",
-      label: t("dashboard.hours_learned", "Hours"),
+      label: t("dashboard.hours_learned", "Study Hours"),
       value: "48h",
       icon: Clock,
       color: config.statsColors[1],
@@ -131,7 +133,7 @@ const sampleStats = (t: any, userRole?: string, theme = "default") => {
     },
     {
       key: "completed",
-      label: t("dashboard.completed_courses", "Completed"),
+      label: t("dashboard.completed_courses", "Completed Courses"),
       value: "4",
       icon: CheckCircle,
       color: config.statsColors[2],
@@ -173,6 +175,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
   const isAr = i18n.language === "ar";
+  const navigate = useNavigate();
 
   const dashboardConfig =
     THEME_DASHBOARD_CONFIGS[theme] || THEME_DASHBOARD_CONFIGS.default;
@@ -245,8 +248,28 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
       time: "1d",
     },
   ];
+
+  const handleViewClick = (key: string) => {
+    switch (key) {
+      case "courses":
+        navigate(ROUTES.DASHBOARD_COURSES);
+        break;
+      case "hours":
+        navigate(ROUTES.DASHBOARD_REPORTS);
+        break;
+      case "completed":
+        navigate(`${ROUTES.DASHBOARD_COURSES}?filter=completed`);
+        break;
+      case "certs":
+        navigate(ROUTES.DASHBOARD_CERTIFICATES);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <div className={cn("space-y-6", dashboardConfig.fontClass)}>
+    <div className={`space-y-8 ${dashboardConfig.fontClass}`}>
       {/* Theme specific background decorative elements */}
       {theme === "programmers" && (
         <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0">
@@ -326,17 +349,6 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
 
         <div className="flex items-center gap-2">
           <Button
-            variant="ghost"
-            size="sm"
-            className={
-              theme === "programmers"
-                ? "rounded-none border border-emerald-500/30"
-                : ""
-            }
-          >
-            {t("dashboard.share", "Share")}
-          </Button>
-          <Button
             className={cn(
               "rounded-full px-5",
               theme === "kids"
@@ -348,8 +360,9 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                     : ""
             )}
             variant="primary"
+            onClick={() => navigate(ROUTES.DASHBOARD_BUY_COURSES)}
           >
-            {t("dashboard.continue", "Continue")}
+            {isAr ? "شراء دورات" : "Buy Courses"}
           </Button>
         </div>
       </motion.div>
@@ -383,9 +396,13 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                     <p className="text-2xl font-black">{s.value}</p>
                   </div>
                 </div>
-                <div className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+                <Button
+                  size="sm"
+                  className="bg-[#0D358C] hover:bg-[#0D358C]/90 text-white h-8 px-4 text-xs font-bold"
+                  onClick={() => handleViewClick(s.key)}
+                >
                   {t("dashboard.view", "View")}
-                </div>
+                </Button>
               </div>
             </Card>
           </motion.div>
@@ -406,7 +423,11 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                 <BookOpen className="w-5 h-5 text-primary" />
                 {t("dashboard.enrolled_courses", "Your Courses")}
               </h2>
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => navigate(ROUTES.DASHBOARD_COURSES)}
+              >
                 {t("dashboard.manage", "Manage")}
               </Button>
             </div>
@@ -585,6 +606,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                 variant="ghost"
                 className="w-full text-xs font-bold"
                 size="sm"
+                onClick={() => navigate(ROUTES.DASHBOARD_CALENDAR)}
               >
                 {isAr ? "عرض التقويم الكامل" : "View Full Calendar"}
               </Button>
@@ -627,6 +649,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                 variant="ghost"
                 className="w-full text-xs font-bold"
                 size="sm"
+                onClick={() => navigate(ROUTES.DASHBOARD_MESSAGES)}
               >
                 {isAr ? "كل الرسائل" : "All Messages"}
               </Button>

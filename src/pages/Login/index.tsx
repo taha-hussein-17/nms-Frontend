@@ -11,6 +11,15 @@ import {
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { useTheme } from "../../providers/ThemeContext";
+import Logo from "../../assets/logo/icon.png";
+
+const LogoIcon = ({ className }: { className?: string }) => (
+  <img
+    src={Logo}
+    alt="Logo"
+    className={cn("object-contain brightness-0 invert", className)}
+  />
+);
 
 const LoginPage = () => {
   const { i18n } = useTranslation();
@@ -58,7 +67,7 @@ const LoginPage = () => {
           bg: "bg-slate-950",
           accent: "text-primary",
           card: "bg-card glass border-white/10",
-          icon: Sparkles,
+          icon: LogoIcon,
           title: isAr ? "تسجيل الدخول" : "Sign In",
         };
     }
@@ -142,7 +151,7 @@ const LoginPage = () => {
                             : "from-primary to-blue-400"
                     )}
                   >
-                    NMS Academy
+                    WAKP Academy
                   </span>
                 </h1>
                 <p

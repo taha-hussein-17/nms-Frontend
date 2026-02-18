@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "../../atoms/Reveal";
-import { Sparkles } from "lucide-react";
+import Logo from "../../../assets/logo/icon.png";
 
 export const DefaultRegisterHero = () => {
   const { i18n } = useTranslation();
@@ -9,7 +9,7 @@ export const DefaultRegisterHero = () => {
   return (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-black uppercase tracking-widest backdrop-blur-md mb-6">
-        <Sparkles className="w-4 h-4" />
+        <img src={Logo} alt="Logo" className="w-4 h-4 object-contain" />
         {isAr ? "ابدأ رحلتك معنا" : "Start Your Journey"}
       </div>
       <h1 className="text-6xl font-black text-white leading-tight">

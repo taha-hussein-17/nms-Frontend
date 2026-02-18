@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../providers/ThemeContext";
 import { THEME_CONFIGS } from "../../constants/themeRegistry";
+import Logo from "../../assets/logo/icon.png";
 import {
-  GraduationCap,
   Facebook,
   Twitter,
   Instagram,
@@ -105,7 +105,11 @@ export const Footer = () => {
                   isUni && "bg-primary shadow-primary/20"
                 )}
               >
-                <GraduationCap className="w-7 h-7" />
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  className="w-7 h-7 object-contain brightness-0 invert"
+                />
               </div>
               <span
                 className={cn(

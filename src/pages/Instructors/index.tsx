@@ -7,7 +7,7 @@ import { InstructorsFilters } from "../../components/organisms/Instructors/Instr
 import { InstructorsGrid } from "../../components/organisms/Instructors/InstructorsGrid";
 import { InstructorsEmptyState } from "../../components/organisms/Instructors/InstructorsEmptyState";
 
-const Instructors = () => {
+export const InstructorsContent = () => {
   const { t, i18n } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -64,7 +64,7 @@ const Instructors = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <InstructorsHero
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -91,6 +91,14 @@ const Instructors = () => {
           <InstructorsEmptyState onReset={handleReset} />
         )}
       </section>
+    </>
+  );
+};
+
+const Instructors = () => {
+  return (
+    <MainLayout>
+      <InstructorsContent />
     </MainLayout>
   );
 };
