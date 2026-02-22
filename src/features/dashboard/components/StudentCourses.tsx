@@ -8,10 +8,12 @@ import {
   Code,
   GraduationCap,
   Book,
+  ChevronDown,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../providers/ThemeContext";
 import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const THEME_COURSES_CONFIGS: any = {
@@ -80,6 +82,7 @@ const courses = [
       default: "د. محمد شاكر",
     },
     progress: 75,
+    status: "in-progress",
     lessons: 48,
     completedLessons: 36,
     lastAccessed: "منذ ساعتين",
@@ -103,6 +106,7 @@ const courses = [
       default: "أ. ليلى حسن",
     },
     progress: 30,
+    status: "in-progress",
     lessons: 32,
     completedLessons: 10,
     lastAccessed: "أمس",
@@ -126,6 +130,7 @@ const courses = [
       default: "م. يوسف رضا",
     },
     progress: 10,
+    status: "returned",
     lessons: 54,
     completedLessons: 5,
     lastAccessed: "منذ 3 أيام",
@@ -149,6 +154,7 @@ const courses = [
       default: "أ. محمد أحمد",
     },
     progress: 100,
+    status: "completed",
     lessons: 20,
     completedLessons: 20,
     lastAccessed: "منذ أسبوع",
@@ -158,25 +164,41 @@ const courses = [
 ];
 
 export const StudentCourses = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useTheme();
-  const [searchParams] = useSearchParams();
-  const filter = searchParams.get("filter");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_] = useSearchParams();
+  const [filterStatus, setFilterStatus] = useState<string>("in-progress");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const isAr = i18n.language === "ar";
 
   const config =
     THEME_COURSES_CONFIGS[theme as keyof typeof THEME_COURSES_CONFIGS] ||
     THEME_COURSES_CONFIGS.default;
 
   const filteredCourses = courses.filter((course) => {
-    if (filter === "completed") {
-      return course.progress === 100;
-    }
-    return true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const status = (course as any).status;
+    return status === filterStatus;
   });
+
+  const getFilterLabel = (status: string) => {
+    switch (status) {
+      case "completed":
+        return t("dashboard.stats.completed_courses");
+      case "in-progress":
+        return t("dashboard.stats.in_progress");
+      case "returned":
+        return isAr ? "المسترجعة" : "Returned";
+      default:
+        return isAr ? "الكل" : "All";
+    }
+  };
 
   return (
     <div className={`space-y-8 ${config.fontClass}`}>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
           <h2 className="text-2xl font-black">
             {t("dashboard.sidebar.courses")}
@@ -187,18 +209,56 @@ export const StudentCourses = () => {
               : "تابع تقدمك في دوراتك التعليمية"}
           </p>
         </div>
-        <div className="flex gap-2">
-          <div
-            className={`${config.badgeBg} px-4 py-2 rounded-xl text-sm font-black flex items-center gap-2`}
+        <div className="relative z-50">
+          <button
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            className={`${config.badgeBg} border border-[#0D358C] px-4 py-2 rounded-xl text-sm font-black flex items-center gap-2 transition-all min-w-[200px] justify-between`}
           >
-            {config.icon}
-            {filteredCourses.length}{" "}
-            {theme === "kids" ? "مغامرات ممتعة" : "دورات نشطة"}
-          </div>
+            <div className="flex items-center gap-2">
+              {config.icon}
+              <span>{getFilterLabel(filterStatus)}</span>
+            </div>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform ${
+                isFilterOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          <AnimatePresence>
+            {isFilterOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="absolute top-full mt-2 right-0 w-full bg-card border border-[#0D358C] rounded-xl shadow-xl overflow-hidden"
+              >
+                {["in-progress", "completed", "returned"].map((status) => (
+                  <button
+                    key={status}
+                    onClick={() => {
+                      setFilterStatus(status);
+                      setIsFilterOpen(false);
+                    }}
+                    className={`w-full px-4 py-3 text-start hover:bg-secondary/50 transition-colors text-sm font-bold flex items-center gap-2 ${
+                      filterStatus === status
+                        ? "text-[#0D358C] bg-[#EBF0FD]"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {status === filterStatus && (
+                      <CheckCircle2 className="w-4 h-4 text-[#0D358C]" />
+                    )}
+                    {getFilterLabel(status)}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredCourses.map((course, index) => (
           <motion.div
             key={course.id}

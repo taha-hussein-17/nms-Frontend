@@ -14,7 +14,7 @@ export const DefaultInstructorExperience = ({
 
   return (
     <Reveal direction="up" delay={0.2}>
-      <div className="bg-card/30 glass border border-white/10 rounded-[3.5rem] p-10 h-full relative overflow-hidden">
+      <div className="bg-card/30 glass border border-[#C7CED9] rounded-[3.5rem] p-10 h-full relative overflow-hidden">
         <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-br-[5rem]" />
 
         <h3 className="text-2xl font-black mb-12 flex items-center gap-4">
@@ -24,10 +24,9 @@ export const DefaultInstructorExperience = ({
           {t("instructor.experience")}
         </h3>
 
-        <div className="space-y-12 relative before:absolute before:right-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-white/10">
+        <div className="space-y-12 relative">
           {experience.map((exp, idx) => (
-            <div key={idx} className="relative pr-12 group">
-              <div className="absolute right-1.5 top-1.5 w-5 h-5 bg-background border-4 border-primary rounded-full z-10 group-hover:scale-125 transition-transform" />
+            <div key={idx} className="relative group">
               <span className="inline-block px-4 py-1.5 rounded-xl bg-primary/10 text-primary text-xs font-black mb-3">
                 {exp.period}
               </span>

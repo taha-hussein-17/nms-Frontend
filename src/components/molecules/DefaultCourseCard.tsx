@@ -75,22 +75,22 @@ export const DefaultCourseCard = memo(
         transition={{ duration: 0.4, ease: "easeOut" }}
         onClick={handleCardClick}
         className={cn(
-          "group relative flex bg-white border border-[#38414D]/20 hover:border-[#38414D]/40 rounded-[2.5rem] overflow-hidden transition-all duration-500 cursor-pointer shadow-sm hover:shadow-md",
-          isHorizontal ? "flex-row h-64" : "flex-col h-full"
+          "group relative flex bg-white border border-[#38414D]/20 hover:border-[#38414D]/40 rounded-[1.5rem] overflow-hidden transition-all duration-500 cursor-pointer shadow-sm hover:shadow-md",
+          isHorizontal ? "flex-row h-48" : "flex-col h-full"
         )}
       >
         {/* Image Container */}
         <div
           className={cn(
-            "relative overflow-hidden m-3 rounded-[2rem] shrink-0 bg-muted",
-            isHorizontal ? "w-72 h-auto" : "aspect-[16/10]"
+            "relative overflow-hidden m-2 rounded-[1.2rem] shrink-0 bg-muted",
+            isHorizontal ? "w-56 h-auto" : "aspect-[16/10]"
           )}
         >
           <img
             src={course.image}
             alt={course.title}
-            width={isHorizontal ? 288 : 400}
-            height={isHorizontal ? 224 : 250}
+            width={isHorizontal ? 224 : 300}
+            height={isHorizontal ? 180 : 188}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             loading="lazy"
             decoding="async"
@@ -131,17 +131,17 @@ export const DefaultCourseCard = memo(
         <div
           className={cn(
             "flex flex-col flex-1",
-            isHorizontal ? "p-8 justify-center" : "p-8 pt-4 space-y-5"
+            isHorizontal ? "p-4 justify-center" : "p-4 pt-2 space-y-3"
           )}
         >
           {/* Rating and Students */}
-          <div className="flex items-center gap-4 mb-3">
-            <div className="flex items-center gap-1.5 bg-orange-500/10 text-orange-600 px-3 py-1 rounded-xl text-xs font-black">
-              <Star className="w-3.5 h-3.5 fill-current" />
+          <div className="flex items-center gap-3 mb-1">
+            <div className="flex items-center gap-1 bg-orange-500/10 text-orange-600 px-2 py-0.5 rounded-lg text-[10px] font-black">
+              <Star className="w-3 h-3 fill-current" />
               {course.rating}
             </div>
-            <div className="flex items-center gap-1.5 text-muted-foreground font-bold text-xs">
-              <Users className="w-4 h-4 text-primary/60" />
+            <div className="flex items-center gap-1 text-muted-foreground font-bold text-[10px]">
+              <Users className="w-3.5 h-3.5 text-primary/60" />
               {course.students} {t("course.students")}
             </div>
           </div>
@@ -149,8 +149,8 @@ export const DefaultCourseCard = memo(
           {/* Title */}
           <h3
             className={cn(
-              "font-black leading-tight line-clamp-2 group-hover:text-primary transition-colors duration-300 mb-4",
-              isHorizontal ? "text-3xl" : "text-2xl"
+              "font-black leading-tight line-clamp-2 group-hover:text-primary transition-colors duration-300 mb-2",
+              isHorizontal ? "text-xl" : "text-base"
             )}
           >
             {course.title}
@@ -159,32 +159,32 @@ export const DefaultCourseCard = memo(
           {/* Instructor and Duration Info */}
           <div
             className={cn(
-              "grid grid-cols-2 gap-4 py-5 border-y border-slate-300",
-              isHorizontal ? "max-w-md mb-6" : "mb-5"
+              "grid grid-cols-2 gap-2 py-3 border-y border-slate-300",
+              isHorizontal ? "max-w-md mb-3" : "mb-3"
             )}
           >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-secondary/50 flex items-center justify-center text-primary">
-                <BookOpen className="w-4.5 h-4.5" />
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-secondary/50 flex items-center justify-center text-primary">
+                <BookOpen className="w-3.5 h-3.5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold">
+                <span className="text-[8px] uppercase tracking-wider text-muted-foreground font-bold">
                   {t("course.instructor")}
                 </span>
-                <span className="text-xs font-bold truncate max-w-[120px]">
+                <span className="text-[10px] font-bold truncate max-w-[100px]">
                   {course.instructor}
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-secondary/50 flex items-center justify-center text-primary">
-                <Clock className="w-4.5 h-4.5" />
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-secondary/50 flex items-center justify-center text-primary">
+                <Clock className="w-3.5 h-3.5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold">
+                <span className="text-[8px] uppercase tracking-wider text-muted-foreground font-bold">
                   {t("course.duration")}
                 </span>
-                <span className="text-xs font-bold">
+                <span className="text-[10px] font-bold">
                   {course.duration || "12h 30m"}
                 </span>
               </div>
@@ -194,15 +194,15 @@ export const DefaultCourseCard = memo(
           {/* Price and Add to Cart */}
           <div
             className={cn(
-              "flex items-center justify-between gap-6",
-              isHorizontal ? "max-w-md mt-0" : "mt-auto pt-4"
+              "flex items-center justify-between gap-3",
+              isHorizontal ? "max-w-md mt-0" : "mt-auto pt-2"
             )}
           >
             <div className="flex flex-col">
-              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground leading-none mb-1.5">
+              <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground leading-none mb-1">
                 {t("course.investment")}
               </span>
-              <span className="text-2xl font-black text-foreground">
+              <span className="text-lg font-black text-foreground">
                 {course.price}
               </span>
             </div>
@@ -210,12 +210,13 @@ export const DefaultCourseCard = memo(
             <Button
               onClick={handleAddToCart}
               variant={isInCart ? "outline" : "primary"}
+              size="sm"
               className={cn(
-                "h-12 px-6 rounded-2xl font-black transition-all duration-500",
+                "h-9 px-4 rounded-xl font-bold transition-all duration-500 text-xs",
                 isInCart
                   ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20"
                   : isHorizontal
-                    ? "w-48"
+                    ? "w-40"
                     : "flex-1"
               )}
             >

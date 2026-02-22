@@ -20,13 +20,14 @@ export const DefaultAboutValues = ({ isAr, t }: AboutValuesProps) => {
       icon: <Zap className="w-8 h-8" />,
       title: t("about.values.innovation_title"),
       description: t("about.values.innovation_desc"),
-      color: "from-orange-500 to-amber-500",
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: t("about.values.community_title"),
-      description: t("about.values.community_desc"),
-      color: "from-emerald-500 to-teal-500",
+      description:
+        "We believe in the power collective learning in building a promising generation.",
+      color: "from-blue-500 to-cyan-500",
     },
   ];
 
@@ -56,11 +57,13 @@ export const DefaultAboutValues = ({ isAr, t }: AboutValuesProps) => {
                     value.color
                   )}
                 />
-                <div className="p-12 rounded-[3rem] bg-card glass border-2 border-transparent hover:border-primary/20 text-center transition-all duration-500 h-full flex flex-col items-center shadow-xl hover:shadow-2xl">
-                  <div className="w-20 h-20 rounded-[2rem] bg-secondary/50 text-primary flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
+                <div className="p-12 rounded-[3rem] bg-card glass border-2 border-[#C7CED9] hover:border-primary/20 text-center transition-all duration-500 h-full flex flex-col items-center shadow-xl hover:shadow-2xl">
+                  <div className="w-20 h-20 rounded-[2rem] bg-secondary/50 text-primary flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg border-2 border-[#0D358C]">
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-black mb-6">{value.title}</h3>
+                  <h3 className="text-2xl font-black mb-6 text-[#0D358C]">
+                    {value.title}
+                  </h3>
                   <p className="text-lg text-muted-foreground leading-relaxed font-medium">
                     {value.description}
                   </p>

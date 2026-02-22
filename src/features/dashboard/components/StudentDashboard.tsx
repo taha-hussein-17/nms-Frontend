@@ -20,9 +20,7 @@ import {
   BookOpen,
   Clock,
   CheckCircle,
-  ListTodo,
   BarChart3,
-  MessageSquare,
   Users,
   CheckSquare,
   Trophy,
@@ -30,6 +28,11 @@ import {
   Target,
   Sparkles,
 } from "lucide-react";
+import { UpcomingTasks } from "./UpcomingTasks";
+import { RecentMessages } from "./RecentMessages";
+import type { UpcomingItem } from "./UpcomingTasks";
+import { SectionHeader } from "../../../components/molecules/SectionHeader";
+import { StatsGrid } from "./StatsGrid";
 
 interface StudentDashboardProps {
   user?: { name?: string; role?: string; children?: any[] } | null;
@@ -209,7 +212,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
     },
   ];
 
-  const upcoming = [
+  const upcoming: UpcomingItem[] = [
     {
       id: 1,
       title:
@@ -368,46 +371,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
       </motion.div>
 
       {/* Top stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-        {stats.map((s, i) => (
-          <motion.div
-            key={s.key}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: i * 0.05 }}
-          >
-            <Card
-              className={cn(
-                "p-4 rounded-2xl",
-                theme === "programmers"
-                  ? "bg-black/40 border-emerald-500/20"
-                  : ""
-              )}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className={cn("p-3 rounded-xl", s.bg)}>
-                    <s.icon className={cn("w-5 h-5", s.color)} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">
-                      {s.label}
-                    </p>
-                    <p className="text-2xl font-black">{s.value}</p>
-                  </div>
-                </div>
-                <Button
-                  size="sm"
-                  className="bg-[#0D358C] hover:bg-[#0D358C]/90 text-white h-8 px-4 text-xs font-bold"
-                  onClick={() => handleViewClick(s.key)}
-                >
-                  {t("dashboard.view", "View")}
-                </Button>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+      <StatsGrid stats={stats} theme={theme} onView={handleViewClick} />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
         {/* Main column: courses + progress */}
@@ -419,16 +383,18 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
             )}
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-extrabold flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-primary" />
-                {t("dashboard.enrolled_courses", "Your Courses")}
-              </h2>
+              <SectionHeader
+                title={t("dashboard.enrolled_courses", "Your Courses")}
+                icon={<BookOpen className="w-5 h-5" />}
+                color="#0D358C"
+                size="xl"
+              />
               <Button
-                variant="ghost"
                 size="sm"
+                className="bg-[#EBF0FD] border border-[#0D358C] text-[#0D358C] hover:bg-[#EBF0FD]/80"
                 onClick={() => navigate(ROUTES.DASHBOARD_COURSES)}
               >
-                {t("dashboard.manage", "Manage")}
+                {t("home.view_all", "View All")}
               </Button>
             </div>
             <div className="space-y-6">
@@ -439,7 +405,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, delay: idx * 0.05 }}
                   className={cn(
-                    "flex flex-col sm:flex-row sm:items-center gap-6 p-4 rounded-xl border border-transparent hover:border-primary/10 hover:bg-secondary/5 transition group",
+                    "flex flex-col sm:flex-row sm:items-center gap-6 p-4 rounded-xl border border-[#C7CED9] hover:bg-secondary/5 transition group",
                     theme === "programmers" ? "hover:bg-emerald-500/5" : ""
                   )}
                 >
@@ -465,7 +431,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                         <span>{isAr ? "التقدم" : "Progress"}</span>
                         <span className="text-primary">{c.progress}%</span>
                       </div>
-                      <div className="h-2 w-full bg-secondary/20 rounded-full overflow-hidden">
+                      <div className="h-2 w-full bg-[#C7CED9] rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${c.progress}%` }}
@@ -492,8 +458,9 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
                         ? "rounded-none border border-emerald-500/50 text-emerald-500 hover:bg-emerald-500 hover:text-black"
                         : ""
                     )}
+                    onClick={() => navigate(`/courses/${c.id}`)}
                   >
-                    {isAr ? "متابعة" : "Resume"}
+                    {isAr ? "متابعة" : "Continue"}
                   </Button>
                 </motion.div>
               ))}
@@ -507,10 +474,12 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
             )}
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-extrabold flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-primary" />
-                {isAr ? "نشاط التعلم" : "Learning Activity"}
-              </h2>
+              <SectionHeader
+                title={isAr ? "نشاط التعلم" : "Learning Activity"}
+                icon={<BarChart3 className="w-5 h-5" />}
+                color="var(--primary)"
+                size="xl"
+              />
             </div>
             <div className="h-[250px] w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -568,93 +537,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({ user }) => {
 
         {/* Sidebar column: Upcoming + Messages */}
         <div className="space-y-6">
-          <Card
-            className={cn(
-              "p-6 rounded-2xl",
-              theme === "programmers" ? "bg-black/40 border-emerald-500/20" : ""
-            )}
-          >
-            <h2 className="text-lg font-extrabold mb-6 flex items-center gap-2">
-              <ListTodo className="w-5 h-5 text-primary" />
-              {isAr ? "المهام القادمة" : "Upcoming Tasks"}
-            </h2>
-            <div className="space-y-4">
-              {upcoming.map((u) => (
-                <div
-                  key={u.id}
-                  className="flex items-center gap-4 p-3 rounded-xl bg-secondary/5 hover:bg-secondary/10 transition group cursor-pointer"
-                >
-                  <div
-                    className={cn(
-                      "w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xs",
-                      u.type === "exam"
-                        ? "bg-red-100 text-red-600"
-                        : "bg-blue-100 text-blue-600"
-                    )}
-                  >
-                    {u.type === "exam" ? "EX" : "AS"}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm group-hover:text-primary transition-colors">
-                      {u.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">{u.date}</p>
-                  </div>
-                </div>
-              ))}
-              <Button
-                variant="ghost"
-                className="w-full text-xs font-bold"
-                size="sm"
-                onClick={() => navigate(ROUTES.DASHBOARD_CALENDAR)}
-              >
-                {isAr ? "عرض التقويم الكامل" : "View Full Calendar"}
-              </Button>
-            </div>
-          </Card>
-
-          <Card
-            className={cn(
-              "p-6 rounded-2xl",
-              theme === "programmers" ? "bg-black/40 border-emerald-500/20" : ""
-            )}
-          >
-            <h2 className="text-lg font-extrabold mb-6 flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-primary" />
-              {isAr ? "الرسائل الأخيرة" : "Recent Messages"}
-            </h2>
-            <div className="space-y-4">
-              {messages.map((m) => (
-                <div
-                  key={m.id}
-                  className="flex gap-4 p-3 rounded-xl hover:bg-secondary/5 transition group cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center font-bold text-primary">
-                    {m.from.charAt(0)}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <h4 className="font-bold text-sm truncate">{m.from}</h4>
-                      <span className="text-[10px] text-muted-foreground flex-shrink-0">
-                        {m.time}
-                      </span>
-                    </div>
-                    <p className="text-xs text-muted-foreground truncate">
-                      {m.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <Button
-                variant="ghost"
-                className="w-full text-xs font-bold"
-                size="sm"
-                onClick={() => navigate(ROUTES.DASHBOARD_MESSAGES)}
-              >
-                {isAr ? "كل الرسائل" : "All Messages"}
-              </Button>
-            </div>
-          </Card>
+          <UpcomingTasks isAr={isAr} upcoming={upcoming} theme={theme} />
+          <RecentMessages isAr={isAr} messages={messages} theme={theme} />
         </div>
       </div>
     </div>

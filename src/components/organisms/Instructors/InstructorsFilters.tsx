@@ -66,7 +66,7 @@ export const InstructorsFilters = ({
       <Reveal delay={0.2}>
         <div
           className={cn(
-            "flex items-center justify-between mb-6",
+            "flex items-center justify-between mb-6 mt-12",
             isAr ? "flex-row" : "flex-row-reverse"
           )}
         >

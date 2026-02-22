@@ -160,8 +160,8 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
           {/* Right Side: Information & Stats */}
           <div className="flex-1 text-center lg:text-start">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EBF0FD] border border-[#DCE5FE] text-[#0D358C] mb-8">
+                <div className="w-2 h-2 rounded-full bg-[#0D358C] animate-pulse" />
                 <span className="text-sm font-black uppercase tracking-widest">
                   {instructor.specialty}
                 </span>
@@ -171,9 +171,7 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
             <Reveal delay={0.1}>
               <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
                 {isAr ? "د. " : "Dr. "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-purple-600">
-                  {instructor.name}
-                </span>
+                <span className="text-[#0D358C]">{instructor.name}</span>
               </h1>
             </Reveal>
 
@@ -185,9 +183,7 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-white/10">
                   <Calendar className="w-4 h-4 text-primary" />
-                  <span>
-                    {t("instructor.joined")} {instructor.joinedDate}
-                  </span>
+                  <span>{instructor.joinedDate}</span>
                 </div>
               </div>
             </Reveal>
@@ -202,13 +198,13 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
               {[
                 {
-                  label: t("instructor.students"),
+                  label: t("instructor.student"),
                   value: instructor.studentsCount,
                   icon: Users,
                   color: "text-blue-500",
                 },
                 {
-                  label: t("instructor.courses"),
+                  label: t("instructor.course"),
                   value: instructor.coursesCount,
                   icon: BookOpen,
                   color: "text-green-500",
@@ -227,7 +223,7 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
                 },
               ].map((stat, idx) => (
                 <Reveal key={idx} delay={0.4 + idx * 0.1}>
-                  <div className="p-6 rounded-[2.5rem] bg-card/50 glass border border-white/10 hover:border-primary/30 transition-all duration-500 group/stat">
+                  <div className="h-full p-6 px-8 rounded-[2.5rem] bg-card/50 glass border border-[#C7CED9] hover:border-primary/30 transition-all duration-500 group/stat flex flex-col items-center justify-center text-center">
                     <div
                       className={cn(
                         "w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-4 transition-transform duration-500 group-hover/stat:scale-110 group-hover/stat:rotate-6",
@@ -237,7 +233,7 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
                       <stat.icon className="w-6 h-6" />
                     </div>
                     <div className="text-2xl font-black mb-1">{stat.value}</div>
-                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                    <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest max-w-[120px] mx-auto leading-relaxed">
                       {stat.label}
                     </div>
                   </div>
@@ -250,18 +246,18 @@ export const DefaultInstructorHero = ({ instructor }: InstructorHeroProps) => {
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <Button
                   size="lg"
-                  className="rounded-2xl px-8 h-16 text-lg group"
+                  className="rounded-2xl px-8 h-16 text-lg group min-w-[180px]"
                 >
                   <MessageCircle className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                  {t("instructor.message")}
+                  {t("instructor.send_message") || "Start Chat"}
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-2xl px-8 h-16 text-lg"
+                  className="rounded-2xl px-8 h-16 text-lg min-w-[180px] bg-[#EBF0FD] border-2 border-[#0D358C] text-[#0D358C] hover:bg-[#0D358C] hover:text-white hover:border-[#0D358C]"
                 >
                   <Share2 className="w-5 h-5 mr-2" />
-                  {t("common.share")}
+                  {t("instructor.share_profile") || "Share Profile"}
                 </Button>
               </div>
             </Reveal>

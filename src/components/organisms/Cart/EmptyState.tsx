@@ -5,7 +5,13 @@ import { ShoppingBag, ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
 
-export const CartEmptyState = () => {
+interface CartEmptyStateProps {
+  isDashboard?: boolean;
+}
+
+export const CartEmptyState = ({
+  isDashboard = false,
+}: CartEmptyStateProps) => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   return (
@@ -16,7 +22,7 @@ export const CartEmptyState = () => {
         <p className="text-muted-foreground mb-10 max-w-md mx-auto">
           {t("cart.empty_desc")}
         </p>
-        <Link to={ROUTES.COURSES}>
+        <Link to={isDashboard ? ROUTES.DASHBOARD_BUY_COURSES : ROUTES.COURSES}>
           <Button
             size="lg"
             className="rounded-full px-10 h-14 text-lg font-bold gap-2"

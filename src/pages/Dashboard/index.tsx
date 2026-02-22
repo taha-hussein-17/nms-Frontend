@@ -105,9 +105,9 @@ const Dashboard = () => {
         case "courses":
           return <StudentCourses />;
         case "buy-courses":
-          return <CoursesContent />;
+          return <CoursesContent withHero={false} />;
         case "cart":
-          return <CartContent />;
+          return <CartContent isDashboard={true} />;
         case "instructors":
           return <InstructorsContent />;
         case "assignments":

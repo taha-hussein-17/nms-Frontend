@@ -22,7 +22,7 @@ export const InstructorsGrid = ({
   const isAr = i18n.language === "ar";
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {instructors.map((instructor, i) => (
         <Reveal key={instructor.id} delay={i * 0.1}>
           <motion.div
@@ -45,11 +45,11 @@ export const InstructorsGrid = ({
                 </div>
               </div>
               <div>
-                <Badge className="bg-primary/10 text-primary border-primary/20 text-[10px] font-black px-4 py-1.5 rounded-xl mb-3 uppercase tracking-widest">
+                <Badge className="bg-[#EBF0FD] text-[#0D358C] border-[#DCE5FE] text-[10px] font-black px-4 py-1.5 rounded-xl mb-1 uppercase tracking-widest inline-block">
                   {categories.find((c) => c.id === instructor.specialty)
                     ?.label || instructor.role}
                 </Badge>
-                <h3 className="text-2xl font-black mb-1 group-hover:text-primary transition-colors leading-tight">
+                <h3 className="text-2xl font-black mb-1 text-[#0D358C] group-hover:text-primary transition-colors leading-tight">
                   {instructor.name}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -74,13 +74,13 @@ export const InstructorsGrid = ({
             </div>
 
             <div className="flex-1 flex flex-col">
-              <p className="text-muted-foreground font-medium text-base line-clamp-3 mb-8 leading-relaxed">
+              <p className="text-muted-foreground font-medium text-base line-clamp-2 mb-8 leading-relaxed">
                 {instructor.bio}
               </p>
 
               {/* Premium Stats Bar */}
               <div className="grid grid-cols-2 gap-4 mb-10">
-                <div className="bg-secondary/30 p-4 rounded-[2rem] text-center border border-border/50 group-hover:bg-primary/5 group-hover:border-primary/20 transition-all duration-500">
+                <div className="bg-secondary/30 p-4 rounded-[2rem] text-center border border-[#C7CED9] group-hover:bg-primary/5 group-hover:border-primary/20 transition-all duration-500 flex flex-col items-center justify-center">
                   <div className="flex items-center justify-center gap-2 mb-1">
                     <Users className="w-4 h-4 text-primary" />
                     <p className="font-black text-xl leading-none">
@@ -91,7 +91,7 @@ export const InstructorsGrid = ({
                     {t("instructor.student")}
                   </p>
                 </div>
-                <div className="bg-secondary/30 p-4 rounded-[2rem] text-center border border-border/50 group-hover:bg-primary/5 group-hover:border-primary/20 transition-all duration-500">
+                <div className="bg-secondary/30 p-4 rounded-[2rem] text-center border border-[#C7CED9] group-hover:bg-primary/5 group-hover:border-primary/20 transition-all duration-500 flex flex-col items-center justify-center">
                   <div className="flex items-center justify-center gap-2 mb-1">
                     <BookOpen className="w-4 h-4 text-primary" />
                     <p className="font-black text-xl leading-none">
@@ -108,7 +108,7 @@ export const InstructorsGrid = ({
                 to={ROUTES.INSTRUCTOR_DETAILS.replace(":id", instructor.id)}
                 className="mt-auto"
               >
-                <Button className="w-full h-16 rounded-[1.5rem] font-black text-lg group/btn relative overflow-hidden bg-white dark:bg-slate-900 border-2 border-border hover:border-primary hover:bg-primary hover:text-white transition-all duration-500">
+                <Button className="w-full h-16 rounded-[1.5rem] font-black text-lg group/btn relative overflow-hidden bg-[#EBF0FD] border-2 border-[#0D358C] text-[#0D358C] hover:bg-[#0D358C] hover:text-white hover:border-[#0D358C] transition-all duration-500">
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     {t("instructor.profile")}
                     {isAr ? (

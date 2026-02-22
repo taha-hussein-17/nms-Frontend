@@ -8,7 +8,11 @@ import { CartEmptyState } from "../../components/organisms/Cart/EmptyState";
 import { CartItemRow } from "../../components/organisms/Cart/ItemRow";
 import { CartSummary } from "../../components/organisms/Cart/Summary";
 
-export const CartContent = () => {
+export const CartContent = ({
+  isDashboard = false,
+}: {
+  isDashboard?: boolean;
+}) => {
   const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const dispatch = useAppDispatch();
@@ -29,11 +33,11 @@ export const CartContent = () => {
       <CartHeader count={items.length} />
 
       {items.length === 0 ? (
-        <CartEmptyState />
+        <CartEmptyState isDashboard={isDashboard} />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Items List */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 flex flex-col gap-3">
             {items.map((item, index) => (
               <Reveal key={item.id} delay={index * 0.1}>
                 <CartItemRow

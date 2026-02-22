@@ -29,10 +29,7 @@ export const DefaultInstructorCourses = ({
           </h2>
         </div>
         <Link to={ROUTES.COURSES}>
-          <Button
-            variant="ghost"
-            className="rounded-2xl font-black hover:bg-primary/5 group"
-          >
+          <Button className="rounded-2xl font-black bg-[#0D358C] text-white hover:bg-[#0D358C]/90 group px-8 h-12">
             {t("instructor.view_all_courses")}
             {isAr ? (
               <ArrowLeft className="w-5 h-5 mr-3 group-hover:-translate-x-2 transition-transform" />

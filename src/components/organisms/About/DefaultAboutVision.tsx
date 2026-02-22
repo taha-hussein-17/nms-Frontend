@@ -11,7 +11,7 @@ interface AboutVisionProps {
 
 export const DefaultAboutVision = ({ isAr, t }: AboutVisionProps) => {
   return (
-    <section className="container mx-auto px-4 -mt-24 relative z-20">
+    <section className="container mx-auto px-4 mt-16 relative z-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Image Side */}
         <div className="lg:col-span-6">
@@ -69,7 +69,10 @@ export const DefaultAboutVision = ({ isAr, t }: AboutVisionProps) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Reveal delay={0.1}>
-              <div className="group p-8 rounded-[2.5rem] bg-card glass border-2 border-transparent hover:border-primary/20 transition-all duration-500 shadow-xl hover:shadow-primary/5">
+              <div
+                className="group p-8 rounded-[2.5rem] bg-card glass border-2 border-[#C7CED9] hover:border-primary/20 transition-all duration-500 shadow-xl hover:shadow-primary/5"
+                style={{ borderColor: "#C7CED9" }}
+              >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                   <Target className="w-8 h-8" />
                 </div>
@@ -82,7 +85,10 @@ export const DefaultAboutVision = ({ isAr, t }: AboutVisionProps) => {
               </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <div className="group p-8 rounded-[2.5rem] bg-card glass border-2 border-transparent hover:border-primary/20 transition-all duration-500 shadow-xl hover:shadow-primary/5">
+              <div
+                className="group p-8 rounded-[2.5rem] bg-card glass border-2 border-[#C7CED9] hover:border-primary/20 transition-all duration-500 shadow-xl hover:shadow-primary/5"
+                style={{ borderColor: "#C7CED9" }}
+              >
                 <div className="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                   <Eye className="w-8 h-8" />
                 </div>

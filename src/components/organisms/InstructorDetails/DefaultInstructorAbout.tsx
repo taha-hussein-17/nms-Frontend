@@ -17,7 +17,7 @@ export const DefaultInstructorAbout = ({
   return (
     <section>
       <Reveal>
-        <div className="relative bg-card/30 glass border border-white/10 rounded-[4rem] p-10 md:p-16 overflow-hidden group">
+        <div className="relative bg-card/30 glass border border-[#C7CED9] rounded-[4rem] p-10 md:p-16 overflow-hidden group">
           {/* Decorative Bg */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-[10rem] -z-10 group-hover:scale-110 transition-transform duration-1000" />
 

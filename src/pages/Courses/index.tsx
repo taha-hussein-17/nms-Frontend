@@ -1,3 +1,7 @@
+1- ال browse courses button لسه مربوط بال screen الى ف ال guest view محتاجين نربطه بال Buy a Course screen
+
+2- لما بيبقي ف ال cart اتنين courses انا اضفتهم لل cart الاتنين rectangles بتوع الاتنين courses بيبقي مفيش مسافة بينهم ف هنضيف بينهم مسافه (8 او 12 px)
+
 import { MainLayout } from "../../components/templates/MainLayout";
 import { useTranslation } from "react-i18next";
 import { SEO } from "../../components/atoms/SEO";
@@ -8,7 +12,7 @@ import { CoursesSearchFilter } from "../../components/organisms/Courses/SearchFi
 import { CoursesSidebar } from "../../components/organisms/Courses/Sidebar";
 import { CoursesList } from "../../components/organisms/Courses/List";
 
-export const CoursesContent = () => {
+export const CoursesContent = ({ withHero = true }: { withHero?: boolean }) => {
   const { t, i18n } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -100,9 +104,13 @@ export const CoursesContent = () => {
     <>
       <SEO title={t("courses.title")} description={t("courses.description")} />
 
-      <CoursesHero isAr={isAr} t={t} />
+      {withHero && <CoursesHero isAr={isAr} t={t} />}
 
-      <div className="container mx-auto px-4 -mt-14 relative z-20 pb-24">
+      <div
+        className={`container mx-auto px-4 ${
+          withHero ? "-mt-14 relative z-20" : "pt-8"
+        } pb-24`}
+      >
         <CoursesSearchFilter
           isAr={isAr}
           t={t}

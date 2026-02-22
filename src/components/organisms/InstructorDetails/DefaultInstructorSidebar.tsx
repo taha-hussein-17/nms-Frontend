@@ -22,7 +22,7 @@ export const DefaultInstructorSidebar = ({
   const isAr = i18n.language === "ar";
 
   return (
-    <aside className="lg:col-span-4 space-y-10">
+    <aside className="lg:col-span-4 space-y-4">
       {/* Achievements Card */}
       <Reveal direction="left">
         <div className="bg-primary rounded-[3.5rem] p-10 text-white shadow-2xl shadow-primary/20 relative overflow-hidden group">
@@ -60,7 +60,7 @@ export const DefaultInstructorSidebar = ({
 
       {/* Quick Contact Form */}
       <Reveal direction="left" delay={0.2}>
-        <div className="bg-card/30 glass border border-white/10 rounded-[3.5rem] p-10 space-y-8">
+        <div className="bg-card/30 glass border border-[#0D358C] rounded-[3.5rem] p-10 my-6 space-y-8">
           <h3 className="text-2xl font-black flex items-center gap-4">
             <div className="p-3 rounded-2xl bg-green-500/10 text-green-500">
               <Mail className="w-6 h-6" />
@@ -75,12 +75,12 @@ export const DefaultInstructorSidebar = ({
             <input
               type="text"
               placeholder={t("home.contact.form_name_placeholder")}
-              className="w-full h-14 px-6 rounded-2xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+              className="w-full h-14 px-6 rounded-2xl bg-white border border-[#C7CED9] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
             />
             <textarea
               placeholder={t("home.contact.form_message_placeholder")}
               rows={4}
-              className="w-full p-6 rounded-2xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+              className="w-full p-6 rounded-2xl bg-white border border-[#C7CED9] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
             />
             <Button className="w-full h-14 rounded-2xl font-black">
               {t("instructor.send_message")}
@@ -91,7 +91,7 @@ export const DefaultInstructorSidebar = ({
 
       {/* Verification & Trust */}
       <Reveal direction="left" delay={0.4}>
-        <div className="bg-white/5 glass border border-dashed border-white/20 rounded-[3rem] p-8 text-center">
+        <div className="bg-white/5 glass border border-dashed border-[#C7CED9] rounded-[3rem] p-8 text-center">
           <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
           <h4 className="text-xl font-black mb-2">
             {t("home.certified_platform")}
